@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f5ef;
+  color: #222;
+  line-height: 1.6;
+}
+
+.hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 8%;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  max-width: 700px;
+}
+
+main {
+  width: min(1200px, 92%);
+  margin: auto;
+}
+
+section {
+  padding: 70px 0;
+}
+
+.chart-container {
+  width: 100%;
+  min-height: 420px;
+  margin: 30px 0;
+}
+
+@media (max-width: 800px) {
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  section {
+    padding: 50px 0;
+  }
+}
