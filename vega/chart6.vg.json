@@ -73,11 +73,9 @@
           "size": {
             "field": "total_export_aud_million",
             "type": "quantitative",
-  
             "scale": {
               "range": [2, 18]
             },
-  
             "legend": null
           },
   
@@ -98,7 +96,7 @@
               "range": [
                 "#c99700",
                 "#2e8b57",
-                "#d97706",
+                "#c95d63",
                 "#7c3aed",
                 "#8b5e3c"
               ]
@@ -121,7 +119,6 @@
               "type": "nominal",
               "title": "Region"
             },
-  
             {
               "field": "total_export_aud_million",
               "type": "quantitative",
@@ -167,7 +164,6 @@
               "test": "datum.country == 'Malaysia'",
               "value": "#e07a3e"
             },
-  
             "value": "#9aa5ad"
           },
   
@@ -177,13 +173,11 @@
               "type": "nominal",
               "title": "Destination"
             },
-  
             {
               "field": "region",
               "type": "nominal",
               "title": "Region"
             },
-  
             {
               "field": "export_value_aud_million",
               "type": "quantitative",
@@ -220,7 +214,6 @@
           "color": {
             "field": "region",
             "type": "nominal",
-  
             "legend": null,
   
             "scale": {
@@ -235,7 +228,7 @@
               "range": [
                 "#c99700",
                 "#2e8b57",
-                "#d97706",
+                "#c95d63",
                 "#7c3aed",
                 "#8b5e3c"
               ]
@@ -248,7 +241,6 @@
               "type": "nominal",
               "title": "Regional hub"
             },
-  
             {
               "field": "total_export_aud_million",
               "type": "quantitative",
@@ -323,13 +315,11 @@
               "type": "nominal",
               "title": "Destination"
             },
-  
             {
               "field": "region",
               "type": "nominal",
               "title": "Region"
             },
-  
             {
               "field": "export_value_aud_million",
               "type": "quantitative",
