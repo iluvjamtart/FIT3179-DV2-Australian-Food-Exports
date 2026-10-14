@@ -1,0 +1,364 @@
+year,branch,category,value_aud_million,status
+1994-95,Crops,Grains,2263.6,actual
+1994-95,Crops,Oilseeds,105.4,actual
+1994-95,Crops,Pulses,188.6,actual
+1994-95,Crops,Industrial crops,2695.7,actual
+1994-95,Crops,Horticulture,923.8,actual
+1994-95,Crops,Other crops,1122.2,actual
+1994-95,Livestock,Meat,3612.5,actual
+1994-95,Livestock,Live animals,452.1,actual
+1994-95,Livestock,Wool,4092.0,actual
+1994-95,Livestock,Dairy,1454.6,actual
+1994-95,Livestock,Other livestock products,989.2,actual
+1995-96,Crops,Grains,4581.2,actual
+1995-96,Crops,Oilseeds,201.5,actual
+1995-96,Crops,Pulses,356.5,actual
+1995-96,Crops,Industrial crops,2790.4,actual
+1995-96,Crops,Horticulture,1002.6,actual
+1995-96,Crops,Other crops,1353.8,actual
+1995-96,Livestock,Meat,3234.7,actual
+1995-96,Livestock,Live animals,659.2,actual
+1995-96,Livestock,Wool,3500.1,actual
+1995-96,Livestock,Dairy,1710.2,actual
+1995-96,Livestock,Other livestock products,991.1,actual
+1996-97,Crops,Grains,5563.0,actual
+1996-97,Crops,Oilseeds,197.8,actual
+1996-97,Crops,Pulses,471.9,actual
+1996-97,Crops,Industrial crops,3228.3,actual
+1996-97,Crops,Horticulture,1077.7,actual
+1996-97,Crops,Other crops,1415.9,actual
+1996-97,Livestock,Meat,2902.2,actual
+1996-97,Livestock,Live animals,705.4,actual
+1996-97,Livestock,Wool,3741.3,actual
+1996-97,Livestock,Dairy,1799.6,actual
+1996-97,Livestock,Other livestock products,1015.6,actual
+1997-98,Crops,Grains,4683.4,actual
+1997-98,Crops,Oilseeds,364.1,actual
+1997-98,Crops,Pulses,440.6,actual
+1997-98,Crops,Industrial crops,4071.6,actual
+1997-98,Crops,Horticulture,1110.7,actual
+1997-98,Crops,Other crops,1507.5,actual
+1997-98,Livestock,Meat,3669.5,actual
+1997-98,Livestock,Live animals,631.0,actual
+1997-98,Livestock,Wool,3963.9,actual
+1997-98,Livestock,Dairy,1956.9,actual
+1997-98,Livestock,Other livestock products,1076.6,actual
+1998-99,Crops,Grains,4598.8,actual
+1998-99,Crops,Oilseeds,683.7,actual
+1998-99,Crops,Pulses,351.7,actual
+1998-99,Crops,Industrial crops,4014.2,actual
+1998-99,Crops,Horticulture,1165.6,actual
+1998-99,Crops,Other crops,1644.0,actual
+1998-99,Livestock,Meat,3941.5,actual
+1998-99,Livestock,Live animals,612.3,actual
+1998-99,Livestock,Wool,2590.2,actual
+1998-99,Livestock,Dairy,2302.7,actual
+1998-99,Livestock,Other livestock products,1084.5,actual
+1999-00,Crops,Grains,4517.3,actual
+1999-00,Crops,Oilseeds,799.2,actual
+1999-00,Crops,Pulses,601.4,actual
+1999-00,Crops,Industrial crops,3877.4,actual
+1999-00,Crops,Horticulture,1165.2,actual
+1999-00,Crops,Other crops,1849.2,actual
+1999-00,Livestock,Meat,4398.6,actual
+1999-00,Livestock,Live animals,734.2,actual
+1999-00,Livestock,Wool,2956.1,actual
+1999-00,Livestock,Dairy,2483.0,actual
+1999-00,Livestock,Other livestock products,1091.3,actual
+2000-01,Crops,Grains,5542.6,actual
+2000-01,Crops,Oilseeds,721.8,actual
+2000-01,Crops,Pulses,640.2,actual
+2000-01,Crops,Industrial crops,4892.5,actual
+2000-01,Crops,Horticulture,1281.0,actual
+2000-01,Crops,Other crops,2101.4,actual
+2000-01,Livestock,Meat,5718.8,actual
+2000-01,Livestock,Live animals,871.0,actual
+2000-01,Livestock,Wool,3885.6,actual
+2000-01,Livestock,Dairy,3089.2,actual
+2000-01,Livestock,Other livestock products,1397.9,actual
+2001-02,Crops,Grains,6059.4,actual
+2001-02,Crops,Oilseeds,752.4,actual
+2001-02,Crops,Pulses,728.5,actual
+2001-02,Crops,Industrial crops,5086.5,actual
+2001-02,Crops,Horticulture,1445.7,actual
+2001-02,Crops,Other crops,2171.1,actual
+2001-02,Livestock,Meat,6160.1,actual
+2001-02,Livestock,Live animals,1111.6,actual
+2001-02,Livestock,Wool,3684.3,actual
+2001-02,Livestock,Dairy,3291.3,actual
+2001-02,Livestock,Other livestock products,1311.1,actual
+2002-03,Crops,Grains,3940.5,actual
+2002-03,Crops,Oilseeds,400.6,actual
+2002-03,Crops,Pulses,290.5,actual
+2002-03,Crops,Industrial crops,4800.9,actual
+2002-03,Crops,Horticulture,1432.9,actual
+2002-03,Crops,Other crops,2243.3,actual
+2002-03,Livestock,Meat,5568.3,actual
+2002-03,Livestock,Live animals,1167.8,actual
+2002-03,Livestock,Wool,3579.5,actual
+2002-03,Livestock,Dairy,2512.0,actual
+2002-03,Livestock,Other livestock products,1399.7,actual
+2003-04,Crops,Grains,4587.1,actual
+2003-04,Crops,Oilseeds,550.2,actual
+2003-04,Crops,Pulses,441.2,actual
+2003-04,Crops,Industrial crops,4461.1,actual
+2003-04,Crops,Horticulture,1202.6,actual
+2003-04,Crops,Other crops,2045.3,actual
+2003-04,Livestock,Meat,5637.9,actual
+2003-04,Livestock,Live animals,865.1,actual
+2003-04,Livestock,Wool,2778.3,actual
+2003-04,Livestock,Dairy,2309.5,actual
+2003-04,Livestock,Other livestock products,1376.9,actual
+2004-05,Crops,Grains,4644.6,actual
+2004-05,Crops,Oilseeds,492.4,actual
+2004-05,Crops,Pulses,311.5,actual
+2004-05,Crops,Industrial crops,4631.8,actual
+2004-05,Crops,Horticulture,1285.9,actual
+2004-05,Crops,Other crops,2083.4,actual
+2004-05,Livestock,Meat,6811.2,actual
+2004-05,Livestock,Live animals,791.1,actual
+2004-05,Livestock,Wool,2818.3,actual
+2004-05,Livestock,Dairy,2509.6,actual
+2004-05,Livestock,Other livestock products,1337.6,actual
+2005-06,Crops,Grains,4327.9,actual
+2005-06,Crops,Oilseeds,411.5,actual
+2005-06,Crops,Pulses,433.9,actual
+2005-06,Crops,Industrial crops,5502.4,actual
+2005-06,Crops,Horticulture,1309.3,actual
+2005-06,Crops,Other crops,2035.4,actual
+2005-06,Livestock,Meat,6590.6,actual
+2005-06,Livestock,Live animals,837.6,actual
+2005-06,Livestock,Wool,2532.1,actual
+2005-06,Livestock,Dairy,2588.8,actual
+2005-06,Livestock,Other livestock products,1311.0,actual
+2006-07,Crops,Grains,3562.9,actual
+2006-07,Crops,Oilseeds,167.3,actual
+2006-07,Crops,Pulses,449.3,actual
+2006-07,Crops,Industrial crops,5227.2,actual
+2006-07,Crops,Horticulture,1311.7,actual
+2006-07,Crops,Other crops,2154.2,actual
+2006-07,Livestock,Meat,6967.0,actual
+2006-07,Livestock,Live animals,956.6,actual
+2006-07,Livestock,Wool,3059.8,actual
+2006-07,Livestock,Dairy,2457.2,actual
+2006-07,Livestock,Other livestock products,1357.1,actual
+2007-08,Crops,Grains,4299.2,actual
+2007-08,Crops,Oilseeds,346.3,actual
+2007-08,Crops,Pulses,391.1,actual
+2007-08,Crops,Industrial crops,4171.7,actual
+2007-08,Crops,Horticulture,1288.6,actual
+2007-08,Crops,Other crops,2426.8,actual
+2007-08,Livestock,Meat,6441.2,actual
+2007-08,Livestock,Live animals,943.2,actual
+2007-08,Livestock,Wool,2797.7,actual
+2007-08,Livestock,Dairy,2773.8,actual
+2007-08,Livestock,Other livestock products,1520.4,actual
+2008-09,Crops,Grains,6382.0,actual
+2008-09,Crops,Oilseeds,644.3,actual
+2008-09,Crops,Pulses,605.3,actual
+2008-09,Crops,Industrial crops,4330.8,actual
+2008-09,Crops,Horticulture,1447.3,actual
+2008-09,Crops,Other crops,3037.7,actual
+2008-09,Livestock,Meat,7362.5,actual
+2008-09,Livestock,Live animals,1164.9,actual
+2008-09,Livestock,Wool,2319.3,actual
+2008-09,Livestock,Dairy,2692.9,actual
+2008-09,Livestock,Other livestock products,1556.7,actual
+2009-10,Crops,Grains,4562.6,actual
+2009-10,Crops,Oilseeds,656.9,actual
+2009-10,Crops,Pulses,686.8,actual
+2009-10,Crops,Industrial crops,4829.9,actual
+2009-10,Crops,Horticulture,1301.7,actual
+2009-10,Crops,Other crops,2962.1,actual
+2009-10,Livestock,Meat,6266.2,actual
+2009-10,Livestock,Live animals,1156.5,actual
+2009-10,Livestock,Wool,2301.7,actual
+2009-10,Livestock,Dairy,2096.7,actual
+2009-10,Livestock,Other livestock products,1379.7,actual
+2010-11,Crops,Grains,6836.7,actual
+2010-11,Crops,Oilseeds,973.0,actual
+2010-11,Crops,Pulses,698.4,actual
+2010-11,Crops,Industrial crops,4812.0,actual
+2010-11,Crops,Horticulture,1219.0,actual
+2010-11,Crops,Other crops,2970.6,actual
+2010-11,Livestock,Meat,6852.3,actual
+2010-11,Livestock,Live animals,1120.7,actual
+2010-11,Livestock,Wool,3047.0,actual
+2010-11,Livestock,Dairy,2350.0,actual
+2010-11,Livestock,Other livestock products,1485.5,actual
+2011-12,Crops,Grains,8675.4,actual
+2011-12,Crops,Oilseeds,1554.5,actual
+2011-12,Crops,Pulses,999.1,actual
+2011-12,Crops,Industrial crops,6203.0,actual
+2011-12,Crops,Horticulture,1252.2,actual
+2011-12,Crops,Other crops,3049.6,actual
+2011-12,Livestock,Meat,7044.5,actual
+2011-12,Livestock,Live animals,1104.3,actual
+2011-12,Livestock,Wool,3123.7,actual
+2011-12,Livestock,Dairy,2307.3,actual
+2011-12,Livestock,Other livestock products,1545.0,actual
+2012-13,Crops,Grains,8962.4,actual
+2012-13,Crops,Oilseeds,2339.7,actual
+2012-13,Crops,Pulses,1183.3,actual
+2012-13,Crops,Industrial crops,5999.2,actual
+2012-13,Crops,Horticulture,1444.0,actual
+2012-13,Crops,Other crops,3193.4,actual
+2012-13,Livestock,Meat,7571.7,actual
+2012-13,Livestock,Live animals,957.0,actual
+2012-13,Livestock,Wool,2868.6,actual
+2012-13,Livestock,Dairy,2250.7,actual
+2012-13,Livestock,Other livestock products,1695.3,actual
+2013-14,Crops,Grains,8777.2,actual
+2013-14,Crops,Oilseeds,2134.1,actual
+2013-14,Crops,Pulses,1019.6,actual
+2013-14,Crops,Industrial crops,5587.3,actual
+2013-14,Crops,Horticulture,1827.3,actual
+2013-14,Crops,Other crops,3503.5,actual
+2013-14,Livestock,Meat,9777.7,actual
+2013-14,Livestock,Live animals,1370.2,actual
+2013-14,Livestock,Wool,2878.7,actual
+2013-14,Livestock,Dairy,2743.6,actual
+2013-14,Livestock,Other livestock products,1964.5,actual
+2014-15,Crops,Grains,8341.3,actual
+2014-15,Crops,Oilseeds,1449.4,actual
+2014-15,Crops,Pulses,1163.8,actual
+2014-15,Crops,Industrial crops,5171.9,actual
+2014-15,Crops,Horticulture,2045.2,actual
+2014-15,Crops,Other crops,3852.7,actual
+2014-15,Livestock,Meat,12879.8,actual
+2014-15,Livestock,Live animals,1763.4,actual
+2014-15,Livestock,Wool,3152.1,actual
+2014-15,Livestock,Dairy,2491.3,actual
+2014-15,Livestock,Other livestock products,2096.7,actual
+2015-16,Crops,Grains,7420.4,actual
+2015-16,Crops,Oilseeds,1194.2,actual
+2015-16,Crops,Pulses,1779.2,actual
+2015-16,Crops,Industrial crops,5276.6,actual
+2015-16,Crops,Horticulture,2626.9,actual
+2015-16,Crops,Other crops,4953.3,actual
+2015-16,Livestock,Meat,12144.3,actual
+2015-16,Livestock,Live animals,1976.0,actual
+2015-16,Livestock,Wool,3281.0,actual
+2015-16,Livestock,Dairy,2344.0,actual
+2015-16,Livestock,Other livestock products,1957.4,actual
+2016-17,Crops,Grains,8689.2,actual
+2016-17,Crops,Oilseeds,2289.3,actual
+2016-17,Crops,Pulses,3129.7,actual
+2016-17,Crops,Industrial crops,6579.2,actual
+2016-17,Crops,Horticulture,2537.8,actual
+2016-17,Crops,Other crops,5513.5,actual
+2016-17,Livestock,Meat,10946.5,actual
+2016-17,Livestock,Live animals,1618.3,actual
+2016-17,Livestock,Wool,3614.7,actual
+2016-17,Livestock,Dairy,2256.2,actual
+2016-17,Livestock,Other livestock products,1877.6,actual
+2017-18,Crops,Grains,7258.6,actual
+2017-18,Crops,Oilseeds,1419.6,actual
+2017-18,Crops,Pulses,1880.5,actual
+2017-18,Crops,Industrial crops,6496.0,actual
+2017-18,Crops,Horticulture,2705.9,actual
+2017-18,Crops,Other crops,6093.0,actual
+2017-18,Livestock,Meat,12489.0,actual
+2017-18,Livestock,Live animals,1719.9,actual
+2017-18,Livestock,Wool,4380.0,actual
+2017-18,Livestock,Dairy,2459.4,actual
+2017-18,Livestock,Other livestock products,1983.9,actual
+2018-19,Crops,Grains,5558.2,actual
+2018-19,Crops,Oilseeds,1017.6,actual
+2018-19,Crops,Pulses,1037.1,actual
+2018-19,Crops,Industrial crops,7039.7,actual
+2018-19,Crops,Horticulture,3322.3,actual
+2018-19,Crops,Other crops,6488.3,actual
+2018-19,Livestock,Meat,14626.6,actual
+2018-19,Livestock,Live animals,1956.3,actual
+2018-19,Livestock,Wool,4151.5,actual
+2018-19,Livestock,Dairy,2616.6,actual
+2018-19,Livestock,Other livestock products,1959.6,actual
+2019-20,Crops,Grains,5191.0,actual
+2019-20,Crops,Oilseeds,1198.9,actual
+2019-20,Crops,Pulses,1263.4,actual
+2019-20,Crops,Industrial crops,5469.8,actual
+2019-20,Crops,Horticulture,3394.4,actual
+2019-20,Crops,Other crops,6362.8,actual
+2019-20,Livestock,Meat,16777.9,actual
+2019-20,Livestock,Live animals,2235.3,actual
+2019-20,Livestock,Wool,2753.8,actual
+2019-20,Livestock,Dairy,2667.2,actual
+2019-20,Livestock,Other livestock products,1856.2,actual
+2020-21,Crops,Grains,9221.6,actual
+2020-21,Crops,Oilseeds,2215.9,actual
+2020-21,Crops,Pulses,1647.4,actual
+2020-21,Crops,Industrial crops,4857.1,actual
+2020-21,Crops,Horticulture,3003.1,actual
+2020-21,Crops,Other crops,5382.8,actual
+2020-21,Livestock,Meat,13211.4,actual
+2020-21,Livestock,Live animals,1787.5,actual
+2020-21,Livestock,Wool,2663.4,actual
+2020-21,Livestock,Dairy,2767.3,actual
+2020-21,Livestock,Other livestock products,1866.8,actual
+2021-22,Crops,Grains,15651.9,actual
+2021-22,Crops,Oilseeds,5965.6,actual
+2021-22,Crops,Pulses,2315.2,actual
+2021-22,Crops,Industrial crops,6450.3,actual
+2021-22,Crops,Horticulture,3142.2,actual
+2021-22,Crops,Other crops,6063.2,actual
+2021-22,Livestock,Meat,16061.8,actual
+2021-22,Livestock,Live animals,1517.3,actual
+2021-22,Livestock,Wool,3562.6,actual
+2021-22,Livestock,Dairy,3427.4,actual
+2021-22,Livestock,Other livestock products,2543.6,actual
+2022-23,Crops,Grains,22253.0,actual
+2022-23,Crops,Oilseeds,6178.3,actual
+2022-23,Crops,Pulses,2887.5,actual
+2022-23,Crops,Industrial crops,9132.4,actual
+2022-23,Crops,Horticulture,3438.4,actual
+2022-23,Crops,Other crops,6683.1,actual
+2022-23,Livestock,Meat,16742.6,actual
+2022-23,Livestock,Live animals,1527.4,actual
+2022-23,Livestock,Wool,3405.7,actual
+2022-23,Livestock,Dairy,3306.1,actual
+2022-23,Livestock,Other livestock products,2945.2,actual
+2023-24,Crops,Grains,14703.0,actual
+2023-24,Crops,Oilseeds,5136.9,actual
+2023-24,Crops,Pulses,2988.2,actual
+2023-24,Crops,Industrial crops,9485.8,actual
+2023-24,Crops,Horticulture,3423.8,actual
+2023-24,Crops,Other crops,6352.6,actual
+2023-24,Livestock,Meat,19034.2,actual
+2023-24,Livestock,Live animals,1220.2,actual
+2023-24,Livestock,Wool,3029.6,actual
+2023-24,Livestock,Dairy,3377.4,actual
+2023-24,Livestock,Other livestock products,2825.2,actual
+2024-25,Crops,Grains,13448.5,estimate
+2024-25,Crops,Oilseeds,5238.1,estimate
+2024-25,Crops,Pulses,4088.7,estimate
+2024-25,Crops,Industrial crops,8055.6,estimate
+2024-25,Crops,Horticulture,4191.8,estimate
+2024-25,Crops,Other crops,6459.8,estimate
+2024-25,Livestock,Meat,23788.0,estimate
+2024-25,Livestock,Live animals,1217.6,estimate
+2024-25,Livestock,Wool,2757.5,estimate
+2024-25,Livestock,Dairy,3726.8,estimate
+2024-25,Livestock,Other livestock products,2860.4,estimate
+2025-26,Crops,Grains,14389.9,forecast
+2025-26,Crops,Oilseeds,4150.0,forecast
+2025-26,Crops,Pulses,2922.8,forecast
+2025-26,Crops,Industrial crops,7451.4,forecast
+2025-26,Crops,Horticulture,4290.3,forecast
+2025-26,Crops,Other crops,6942.1,forecast
+2025-26,Livestock,Meat,29202.6,forecast
+2025-26,Livestock,Live animals,1200.9,forecast
+2025-26,Livestock,Wool,3272.2,forecast
+2025-26,Livestock,Dairy,3573.2,forecast
+2025-26,Livestock,Other livestock products,3213.5,forecast
+2026-27,Crops,Grains,13892.6,forecast
+2026-27,Crops,Oilseeds,4585.0,forecast
+2026-27,Crops,Pulses,3038.2,forecast
+2026-27,Crops,Industrial crops,6869.3,forecast
+2026-27,Crops,Horticulture,4423.2,forecast
+2026-27,Crops,Other crops,6099.1,forecast
+2026-27,Livestock,Meat,26031.6,forecast
+2026-27,Livestock,Live animals,1146.4,forecast
+2026-27,Livestock,Wool,3537.2,forecast
+2026-27,Livestock,Dairy,3210.8,forecast
+2026-27,Livestock,Other livestock products,3424.3,forecast

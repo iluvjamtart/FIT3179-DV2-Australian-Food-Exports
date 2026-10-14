@@ -1,0 +1,167 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+    "title": {
+      "text": "Which Australian agricultural commodities rely most on export markets?",
+      "subtitle": "Share of production exported by volume, 2022-23 to 2024-25 average.",
+      "anchor": "start",
+      "subtitlePadding": 10,
+      "offset": 18
+    },
+  
+    "width": "container",
+    "height": 300,
+  
+    "data": {
+      "url": "data/chart11_export_share.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "commodity": "string",
+          "share_exported_pct": "number"
+        }
+      }
+    },
+  
+    "transform": [
+      {
+        "calculate": "0",
+        "as": "zero"
+      }
+    ],
+  
+    "layer": [
+      {
+        "mark": {
+          "type": "rule",
+          "strokeWidth": 3,
+          "color": "#9aa5ad"
+        },
+  
+        "encoding": {
+          "y": {
+            "field": "commodity",
+            "type": "nominal",
+            "title": null,
+            "sort": {
+              "field": "share_exported_pct",
+              "order": "descending"
+            }
+          },
+  
+          "x": {
+            "field": "zero",
+            "type": "quantitative",
+            "scale": {
+              "domain": [0, 100]
+            }
+          },
+  
+          "x2": {
+            "field": "share_exported_pct"
+          }
+        }
+      },
+  
+      {
+        "mark": {
+          "type": "circle",
+          "size": 180,
+          "color": "#1b6b93"
+        },
+  
+        "encoding": {
+          "y": {
+            "field": "commodity",
+            "type": "nominal",
+            "title": null,
+            "sort": {
+              "field": "share_exported_pct",
+              "order": "descending"
+            }
+          },
+  
+          "x": {
+            "field": "share_exported_pct",
+            "type": "quantitative",
+            "title": "Share of production exported (%)",
+            "scale": {
+              "domain": [0, 100]
+            },
+            "axis": {
+              "values": [0, 20, 40, 60, 80, 100],
+              "labelExpr": "datum.value + '%'"
+            }
+          },
+  
+          "tooltip": [
+            {
+              "field": "commodity",
+              "type": "nominal",
+              "title": "Commodity"
+            },
+            {
+              "field": "share_exported_pct",
+              "type": "quantitative",
+              "title": "Share exported (%)",
+              "format": ".0f"
+            }
+          ]
+        }
+      },
+  
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "dx": 10,
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "color": "#333333"
+        },
+  
+        "encoding": {
+          "y": {
+            "field": "commodity",
+            "type": "nominal",
+            "sort": {
+              "field": "share_exported_pct",
+              "order": "descending"
+            }
+          },
+  
+          "x": {
+            "field": "share_exported_pct",
+            "type": "quantitative",
+            "scale": {
+              "domain": [0, 100]
+            }
+          },
+  
+          "text": {
+            "field": "share_exported_pct",
+            "type": "quantitative",
+            "format": ".0f"
+          }
+        }
+      }
+    ],
+  
+    "config": {
+      "view": {
+        "stroke": null
+      },
+  
+      "axis": {
+        "labelFontSize": 11,
+        "titleFontSize": 12,
+        "gridColor": "#dddddd",
+        "gridOpacity": 0.5
+      },
+  
+      "title": {
+        "fontSize": 18,
+        "subtitleFontSize": 12
+      }
+    }
+  }

@@ -1,0 +1,437 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+    "title": {
+      "text": "Where do Australia's agricultural exports flow?",
+      "subtitle": [
+        "Top 10 markets in 2024-25, bundled into regional flows.",
+        "Nominal A$ million; excludes fisheries and forestry."
+      ],
+      "anchor": "start",
+      "subtitlePadding": 10
+    },
+  
+    "width": "container",
+    "height": 500,
+  
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+  
+    "projection": {
+      "type": "equalEarth"
+    },
+  
+    "layer": [
+      {
+        "data": {
+          "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
+          "format": {
+            "type": "topojson",
+            "feature": "countries"
+          }
+        },
+  
+        "mark": {
+          "type": "geoshape",
+          "fill": "#e6e2d8",
+          "stroke": "#ffffff",
+          "strokeWidth": 0.5
+        }
+      },
+  
+      {
+        "data": {
+          "url": "data/chart6_region_flows.csv"
+        },
+  
+        "mark": {
+          "type": "rule",
+          "opacity": 0.75
+        },
+  
+        "encoding": {
+          "longitude": {
+            "field": "origin_lon",
+            "type": "quantitative"
+          },
+  
+          "latitude": {
+            "field": "origin_lat",
+            "type": "quantitative"
+          },
+  
+          "longitude2": {
+            "field": "hub_lon"
+          },
+  
+          "latitude2": {
+            "field": "hub_lat"
+          },
+  
+          "size": {
+            "field": "total_export_aud_million",
+            "type": "quantitative",
+  
+            "scale": {
+              "range": [2, 18]
+            },
+  
+            "legend": null
+          },
+  
+          "color": {
+            "field": "region",
+            "type": "nominal",
+            "title": "Region",
+  
+            "scale": {
+              "domain": [
+                "East Asia",
+                "Southeast Asia",
+                "South Asia",
+                "North America",
+                "Oceania"
+              ],
+  
+              "range": [
+                "#c99700",
+                "#2e8b57",
+                "#d97706",
+                "#7c3aed",
+                "#8b5e3c"
+              ]
+            },
+  
+            "legend": {
+              "title": "Region",
+              "symbolType": "stroke",
+              "symbolStrokeWidth": 5,
+              "labelFontSize": 12,
+              "titleFontSize": 13,
+              "labelPadding": 6,
+              "padding": 10
+            }
+          },
+  
+          "tooltip": [
+            {
+              "field": "region",
+              "type": "nominal",
+              "title": "Region"
+            },
+  
+            {
+              "field": "total_export_aud_million",
+              "type": "quantitative",
+              "title": "Regional total (A$ million)",
+              "format": ",.1f"
+            }
+          ]
+        }
+      },
+  
+      {
+        "data": {
+          "url": "data/chart6_country_branches.csv"
+        },
+  
+        "mark": {
+          "type": "rule",
+          "opacity": 0.45,
+          "strokeWidth": 1.5
+        },
+  
+        "encoding": {
+          "longitude": {
+            "field": "hub_lon",
+            "type": "quantitative"
+          },
+  
+          "latitude": {
+            "field": "hub_lat",
+            "type": "quantitative"
+          },
+  
+          "longitude2": {
+            "field": "dest_lon"
+          },
+  
+          "latitude2": {
+            "field": "dest_lat"
+          },
+  
+          "color": {
+            "condition": {
+              "test": "datum.country == 'Malaysia'",
+              "value": "#e07a3e"
+            },
+  
+            "value": "#9aa5ad"
+          },
+  
+          "tooltip": [
+            {
+              "field": "country",
+              "type": "nominal",
+              "title": "Destination"
+            },
+  
+            {
+              "field": "region",
+              "type": "nominal",
+              "title": "Region"
+            },
+  
+            {
+              "field": "export_value_aud_million",
+              "type": "quantitative",
+              "title": "Export value (A$ million)",
+              "format": ",.1f"
+            }
+          ]
+        }
+      },
+  
+      {
+        "data": {
+          "url": "data/chart6_region_flows.csv"
+        },
+  
+        "mark": {
+          "type": "circle",
+          "size": 100,
+          "stroke": "#ffffff",
+          "strokeWidth": 1
+        },
+  
+        "encoding": {
+          "longitude": {
+            "field": "hub_lon",
+            "type": "quantitative"
+          },
+  
+          "latitude": {
+            "field": "hub_lat",
+            "type": "quantitative"
+          },
+  
+          "color": {
+            "field": "region",
+            "type": "nominal",
+  
+            "legend": null,
+  
+            "scale": {
+              "domain": [
+                "East Asia",
+                "Southeast Asia",
+                "South Asia",
+                "North America",
+                "Oceania"
+              ],
+  
+              "range": [
+                "#c99700",
+                "#2e8b57",
+                "#d97706",
+                "#7c3aed",
+                "#8b5e3c"
+              ]
+            }
+          },
+  
+          "tooltip": [
+            {
+              "field": "region",
+              "type": "nominal",
+              "title": "Regional hub"
+            },
+  
+            {
+              "field": "total_export_aud_million",
+              "type": "quantitative",
+              "title": "Regional total (A$ million)",
+              "format": ",.1f"
+            }
+          ]
+        }
+      },
+  
+      {
+        "data": {
+          "url": "data/chart6_country_branches.csv"
+        },
+  
+        "transform": [
+          {
+            "calculate": "datum.country == 'Malaysia' ? 'Malaysia' : 'Other top 10 destination'",
+            "as": "destination_type"
+          }
+        ],
+  
+        "mark": {
+          "type": "circle",
+          "size": 55,
+          "stroke": "#ffffff",
+          "strokeWidth": 0.8
+        },
+  
+        "encoding": {
+          "longitude": {
+            "field": "dest_lon",
+            "type": "quantitative"
+          },
+  
+          "latitude": {
+            "field": "dest_lat",
+            "type": "quantitative"
+          },
+  
+          "color": {
+            "field": "destination_type",
+            "type": "nominal",
+            "title": "Destination dots",
+  
+            "scale": {
+              "domain": [
+                "Other top 10 destination",
+                "Malaysia"
+              ],
+  
+              "range": [
+                "#1b6b93",
+                "#e07a3e"
+              ]
+            },
+  
+            "legend": {
+              "title": "Destination dots",
+              "symbolType": "circle",
+              "symbolSize": 120,
+              "labelFontSize": 12,
+              "titleFontSize": 13,
+              "labelPadding": 6,
+              "padding": 10
+            }
+          },
+  
+          "tooltip": [
+            {
+              "field": "country",
+              "type": "nominal",
+              "title": "Destination"
+            },
+  
+            {
+              "field": "region",
+              "type": "nominal",
+              "title": "Region"
+            },
+  
+            {
+              "field": "export_value_aud_million",
+              "type": "quantitative",
+              "title": "Export value (A$ million)",
+              "format": ",.1f"
+            }
+          ]
+        }
+      },
+  
+      {
+        "data": {
+          "values": [
+            {
+              "lat": -25.2744,
+              "lon": 133.7751
+            }
+          ]
+        },
+  
+        "mark": {
+          "type": "point",
+          "shape": "triangle",
+          "size": 140,
+          "color": "#1b1b1b",
+          "filled": true
+        },
+  
+        "encoding": {
+          "longitude": {
+            "field": "lon",
+            "type": "quantitative"
+          },
+  
+          "latitude": {
+            "field": "lat",
+            "type": "quantitative"
+          }
+        }
+      },
+  
+      {
+        "data": {
+          "values": [
+            {
+              "lat": -25.2744,
+              "lon": 133.7751,
+              "label": "Australia"
+            }
+          ]
+        },
+  
+        "mark": {
+          "type": "text",
+          "dx": 10,
+          "dy": -8,
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "color": "#1b1b1b"
+        },
+  
+        "encoding": {
+          "longitude": {
+            "field": "lon",
+            "type": "quantitative"
+          },
+  
+          "latitude": {
+            "field": "lat",
+            "type": "quantitative"
+          },
+  
+          "text": {
+            "field": "label"
+          }
+        }
+      }
+    ],
+  
+    "resolve": {
+      "scale": {
+        "color": "independent"
+      }
+    },
+  
+    "config": {
+      "view": {
+        "stroke": null
+      },
+  
+      "legend": {
+        "labelFontSize": 12,
+        "titleFontSize": 13,
+        "titleFontWeight": "bold",
+        "orient": "right",
+        "padding": 10
+      },
+  
+      "title": {
+        "fontSize": 18,
+        "subtitleFontSize": 12,
+        "subtitleLineHeight": 16
+      }
+    }
+  }

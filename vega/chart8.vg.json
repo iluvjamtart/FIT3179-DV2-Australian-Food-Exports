@@ -1,0 +1,181 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+    "title": {
+      "text": "What agricultural products does Australia export across ASEAN?",
+      "subtitle": "Agricultural export value by product group and ASEAN market, 2024-25. Nominal A$ million; excludes fisheries and forestry.",
+      "anchor": "start",
+      "subtitlePadding": 10,
+      "offset": 18
+    },
+  
+    "width": "container",
+    "height": 430,
+  
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+  
+    "data": {
+      "url": "data/chart8_asean_heatmap.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "country": "string",
+          "product_group": "string",
+          "export_value_aud_million": "number"
+        }
+      }
+    },
+  
+    "layer": [
+      {
+        "mark": {
+          "type": "rect",
+          "stroke": "#ffffff",
+          "strokeWidth": 1
+        },
+  
+        "encoding": {
+          "x": {
+            "field": "country",
+            "type": "nominal",
+            "title": "ASEAN market",
+            "sort": [
+              "Brunei",
+              "Cambodia",
+              "Indonesia",
+              "Laos",
+              "Malaysia",
+              "Myanmar",
+              "Philippines",
+              "Singapore",
+              "Thailand",
+              "Vietnam"
+            ],
+            "axis": {
+              "labelAngle": -40,
+              "labelFontSize": 10
+            }
+          },
+  
+          "y": {
+            "field": "product_group",
+            "type": "nominal",
+            "title": null,
+            "sort": [
+              "Grains & cereals",
+              "Meat & live animals",
+              "Dairy & eggs",
+              "Fruit & vegetables",
+              "Sugar cocoa coffee & spices",
+              "Beverages",
+              "Oilseeds oils & fats",
+              "Fibres hides & raw materials",
+              "Other agricultural products"
+            ]
+          },
+  
+          "color": {
+            "field": "export_value_aud_million",
+            "type": "quantitative",
+            "title": "Export value (A$ million)",
+            "scale": {
+              "scheme": "blues"
+            }
+          },
+  
+          "tooltip": [
+            {
+              "field": "country",
+              "type": "nominal",
+              "title": "Market"
+            },
+            {
+              "field": "product_group",
+              "type": "nominal",
+              "title": "Product group"
+            },
+            {
+              "field": "export_value_aud_million",
+              "type": "quantitative",
+              "title": "Export value (A$ million)",
+              "format": ",.1f"
+            }
+          ]
+        }
+      },
+  
+      {
+        "transform": [
+          {
+            "filter": "datum.country == 'Malaysia'"
+          }
+        ],
+  
+        "mark": {
+          "type": "rect",
+          "fillOpacity": 0,
+          "stroke": "#e07a3e",
+          "strokeWidth": 3
+        },
+  
+        "encoding": {
+          "x": {
+            "field": "country",
+            "type": "nominal",
+            "sort": [
+              "Brunei",
+              "Cambodia",
+              "Indonesia",
+              "Laos",
+              "Malaysia",
+              "Myanmar",
+              "Philippines",
+              "Singapore",
+              "Thailand",
+              "Vietnam"
+            ]
+          },
+  
+          "y": {
+            "field": "product_group",
+            "type": "nominal",
+            "sort": [
+              "Grains & cereals",
+              "Meat & live animals",
+              "Dairy & eggs",
+              "Fruit & vegetables",
+              "Sugar cocoa coffee & spices",
+              "Beverages",
+              "Oilseeds oils & fats",
+              "Fibres hides & raw materials",
+              "Other agricultural products"
+            ]
+          }
+        }
+      }
+    ],
+  
+    "config": {
+      "view": {
+        "stroke": null
+      },
+  
+      "axis": {
+        "labelFontSize": 10,
+        "titleFontSize": 11
+      },
+  
+      "legend": {
+        "labelFontSize": 10,
+        "titleFontSize": 11
+      },
+  
+      "title": {
+        "fontSize": 18,
+        "subtitleFontSize": 12
+      }
+    }
+  }

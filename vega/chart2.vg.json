@@ -1,0 +1,310 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+  
+    "description": "Treemap of Australia's agricultural export basket, 2024-25 estimate.",
+  
+    "title": {
+      "text": "Australia's agricultural export basket, 2024-25",
+      "subtitle": "Estimated export value, A$ million",
+      "anchor": "start",
+      "font": "Arial",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "subtitleFont": "Arial",
+      "subtitleFontSize": 12,
+      "subtitleFontWeight": "normal",
+      "offset": 10
+    },
+  
+    "width": 1100,
+    "height": 520,
+  
+    "padding": {
+      "top": 10,
+      "left": 8,
+      "right": 8,
+      "bottom": 8
+    },
+  
+    "autosize": {
+      "type": "fit",
+      "contains": "padding",
+      "resize": true
+    },
+  
+    "data": [
+      {
+        "name": "tree",
+  
+        "url": "data/chart2_export_basket.csv",
+  
+        "format": {
+          "type": "csv",
+          "parse": {
+            "value": "number"
+          }
+        },
+  
+        "transform": [
+          {
+            "type": "stratify",
+            "key": "id",
+            "parentKey": "parent"
+          },
+  
+          {
+            "type": "treemap",
+  
+            "field": "value",
+  
+            "sort": {
+              "field": "value",
+              "order": "descending"
+            },
+  
+            "round": true,
+  
+            "method": "squarify",
+  
+            "ratio": 1.1,
+  
+            "size": [
+              {
+                "signal": "width"
+              },
+              {
+                "signal": "height"
+              }
+            ],
+  
+            "as": [
+              "x0",
+              "y0",
+              "x1",
+              "y1",
+              "depth",
+              "children"
+            ]
+          }
+        ]
+      },
+  
+      {
+        "name": "leaves",
+  
+        "source": "tree",
+  
+        "transform": [
+          {
+            "type": "filter",
+            "expr": "!datum.children"
+          }
+        ]
+      }
+    ],
+  
+    "scales": [
+      {
+        "name": "color",
+  
+        "type": "ordinal",
+  
+        "domain": [
+          "crops",
+          "livestock",
+          "fisheries"
+        ],
+  
+        "range": [
+          "#1b6b93",
+          "#e07a3e",
+          "#4c9f70"
+        ]
+      }
+    ],
+  
+    "marks": [
+      {
+        "type": "rect",
+  
+        "name": "treemap_rectangles",
+  
+        "from": {
+          "data": "leaves"
+        },
+  
+        "encode": {
+          "enter": {
+            "x": {
+              "field": "x0"
+            },
+  
+            "y": {
+              "field": "y0"
+            },
+  
+            "x2": {
+              "field": "x1"
+            },
+  
+            "y2": {
+              "field": "y1"
+            },
+  
+            "stroke": {
+              "value": "#ffffff"
+            },
+  
+            "strokeWidth": {
+              "value": 2
+            },
+  
+            "cursor": {
+              "value": "pointer"
+            }
+          },
+  
+          "update": {
+            "fill": {
+              "scale": "color",
+              "field": "parent"
+            },
+  
+            "fillOpacity": {
+              "value": 0.85
+            },
+  
+            "tooltip": {
+              "signal": "{'Category': datum.name, 'Group': datum.parent == 'crops' ? 'Crops' : datum.parent == 'livestock' ? 'Livestock and livestock products' : 'Fisheries', 'Export value': 'A$' + format(datum.value, ',.1f') + ' million'}"
+            }
+          },
+  
+          "hover": {
+            "fillOpacity": {
+              "value": 1
+            },
+  
+            "strokeWidth": {
+              "value": 3
+            }
+          }
+        }
+      },
+  
+      {
+        "type": "text",
+  
+        "name": "category_labels",
+  
+        "from": {
+          "data": "leaves"
+        },
+  
+        "interactive": false,
+  
+        "encode": {
+          "enter": {
+            "font": {
+              "value": "Arial"
+            },
+  
+            "fontWeight": {
+              "value": "bold"
+            },
+  
+            "fill": {
+              "value": "#ffffff"
+            },
+  
+            "align": {
+              "value": "left"
+            },
+  
+            "baseline": {
+              "value": "top"
+            }
+          },
+  
+          "update": {
+            "x": {
+              "field": "x0",
+              "offset": 7
+            },
+  
+            "y": {
+              "field": "y0",
+              "offset": 7
+            },
+  
+            "fontSize": {
+              "signal": "(datum.x1 - datum.x0) > 160 ? 14 : 12"
+            },
+  
+            "text": {
+              "signal": "(datum.x1 - datum.x0) > 85 && (datum.y1 - datum.y0) > 35 ? datum.name : ''"
+            },
+  
+            "opacity": {
+              "signal": "(datum.x1 - datum.x0) > 85 && (datum.y1 - datum.y0) > 35 ? 1 : 0"
+            }
+          }
+        }
+      },
+  
+      {
+        "type": "text",
+  
+        "name": "value_labels",
+  
+        "from": {
+          "data": "leaves"
+        },
+  
+        "interactive": false,
+  
+        "encode": {
+          "enter": {
+            "font": {
+              "value": "Arial"
+            },
+  
+            "fill": {
+              "value": "#ffffff"
+            },
+  
+            "align": {
+              "value": "left"
+            },
+  
+            "baseline": {
+              "value": "top"
+            },
+  
+            "fontSize": {
+              "value": 11
+            }
+          },
+  
+          "update": {
+            "x": {
+              "field": "x0",
+              "offset": 7
+            },
+  
+            "y": {
+              "field": "y0",
+              "offset": 27
+            },
+  
+            "text": {
+              "signal": "(datum.x1 - datum.x0) > 85 && (datum.y1 - datum.y0) > 60 ? 'A$' + format(datum.value / 1000, ',.1f') + 'bn' : ''"
+            },
+  
+            "opacity": {
+              "signal": "(datum.x1 - datum.x0) > 85 && (datum.y1 - datum.y0) > 60 ? 1 : 0"
+            }
+          }
+        }
+      }
+    ]
+  }

@@ -1,59 +1,588 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Australian Food Exports</title>
 
-  <link rel="stylesheet" href="css/style.css">
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Australian Food Exports
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+  <!-- Vega libraries -->
 
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
 </head>
+
 
 <body>
 
+
+  <!-- ==================================================
+       HERO
+  =================================================== -->
+
   <header class="hero">
-    <h1>Australian Food Exports</h1>
-    <p>What Australia sells, where it goes, and how it is changing.</p>
+
+    <div class="hero-content">
+
+      <p class="eyebrow">
+        Australian Food Exports
+      </p>
+
+      <h1>
+        What Australia sells, where it goes and how it is changing
+      </h1>
+
+      <div class="hero-text">
+
+        <p>
+          Australia exports food and agricultural products worth tens of
+          billions of dollars each year, with Asian markets playing an
+          increasingly important role.
+        </p>
+
+        <p>
+          This visual story explores what Australia exports, where it goes,
+          how these patterns have changed, and where Malaysia fits into
+          the picture. Broader agricultural products are included where
+          they form part of official agricultural export data.
+        </p>
+
+      </div>
+
+    </div>
+
   </header>
+
+
+
+  <!-- ==================================================
+       MAIN CONTENT
+  =================================================== -->
 
   <main>
 
-    <section id="scale">
-      <h2>Scale</h2>
-      <div id="chart1" class="chart-container"></div>
+
+    <!-- ==================================================
+         SECTION 01
+    =================================================== -->
+
+    <section class="story-section">
+
+      <div class="section-heading">
+
+        <p class="section-number">
+          01
+        </p>
+
+        <h2>
+          How large is Australia's food and agricultural export sector?
+        </h2>
+
+        <p>
+          Australia's food and agricultural sector has expanded substantially over
+          the past three decades, with international markets playing an
+          important role in the sector's growth.
+        </p>
+
+      </div>
+
+
+      <!-- CHART 1 -->
+
+      <div class="chart-card">
+
+        <div class="chart-intro">
+
+          <h3>
+            Agricultural production and exports over time
+          </h3>
+
+          <p>
+            Agricultural exports have grown strongly alongside farm
+            production. By 2024-25, export value reached about
+            A$75.8 billion.
+          </p>
+
+        </div>
+
+        <div
+          id="chart1"
+          class="chart-container"
+        ></div>
+
+      </div>
+
     </section>
 
-    <section id="product-mix">
-      <h2>Product Mix</h2>
-      <div id="chart2" class="chart-container"></div>
-      <div id="chart3" class="chart-container"></div>
-      <div id="chart4" class="chart-container"></div>
+
+
+    <!-- ==================================================
+         SECTION 02
+    =================================================== -->
+
+    <section class="story-section">
+
+      <div class="section-heading">
+
+        <p class="section-number">
+          02
+        </p>
+
+        <h2>
+          What does Australia export?
+        </h2>
+
+        <p>
+          Australia's food and agricultural export basket contains a wide range of
+          crop and livestock products, and the importance of these products
+          has changed considerably over time.
+        </p>
+
+      </div>
+
+
+      <!-- CHART 2 -->
+
+      <div class="chart-card">
+
+        <div class="chart-intro">
+
+          <h3>
+            Australia's agricultural export basket
+          </h3>
+
+          <p>
+            Meat is the largest broad export category, contributing about
+            31% of Australia's agricultural export value in 2024-25.
+          </p>
+
+          <p class="chart-note">
+            Fisheries exports are excluded so the chart remains
+            consistent with the agricultural export definition used
+            throughout the visualisation.
+          </p>
+
+        </div>
+
+        <div
+          id="chart2"
+          class="chart-container"
+        ></div>
+
+      </div>
+
+
+
+      <!-- CHART 4 -->
+
+      <div class="chart-card">
+
+        <div class="chart-intro">
+
+          <h3>
+            Which commodities changed the most?
+          </h3>
+
+          <p>
+            Most major commodity groups are worth substantially more than
+            three decades ago. Wool is the only broad category shown with
+            a lower export value in 2023-24 than in 1994-95.
+          </p>
+
+        </div>
+
+        <div
+          id="chart4"
+          class="chart-container"
+        ></div>
+
+      </div>
+
+
+
+      <!-- CHART 3 -->
+
+      <div class="chart-card">
+
+        <div class="chart-intro">
+
+          <h3>
+            How has the export mix changed over time?
+          </h3>
+
+          <p>
+            Australia's export mix has shifted substantially over time as
+            different crop and livestock categories have expanded at
+            different rates.
+          </p>
+
+        </div>
+
+        <div
+          id="chart3"
+          class="chart-container"
+        ></div>
+
+      </div>
+
     </section>
 
-    <section id="destinations">
-      <h2>Destinations</h2>
-      <div id="chart5" class="chart-container"></div>
-      <div id="chart6" class="chart-container"></div>
-      <div id="chart7" class="chart-container"></div>
+
+
+    <!-- ==================================================
+         SECTION 03
+    =================================================== -->
+
+    <section class="story-section">
+
+      <div class="section-heading">
+
+        <p class="section-number">
+          03
+        </p>
+
+        <h2>
+          Where do Australia's agricultural exports go?
+        </h2>
+
+        <p>
+          Australian agricultural exports reach markets around the world,
+          but demand is unevenly distributed and major destinations can
+          change significantly over time.
+        </p>
+
+      </div>
+
+
+      <!-- CHART 5 -->
+
+      <div class="chart-card">
+
+        <div class="chart-intro">
+
+          <h3>
+            Australia's major agricultural export markets
+          </h3>
+
+          <p>
+            China is Australia's largest agricultural export destination,
+            accounting for about 21% of export value in 2024-25. The five
+            largest markets together account for roughly 53%.
+          </p>
+
+        </div>
+
+        <div
+          id="chart5"
+          class="chart-container"
+        ></div>
+
+      </div>
+
+
+
+      <!-- CHART 6 -->
+
+      <div class="chart-card">
+
+        <div class="chart-intro">
+
+          <h3>
+            How are export markets distributed across regions?
+          </h3>
+
+          <p>
+            Australia's largest export markets are strongly concentrated
+            across Asia, particularly East and Southeast Asia, while North
+            America is also an important destination.
+          </p>
+
+          <p class="chart-note">
+            Regional totals represent only the destinations included among
+            the selected top export markets rather than complete regional
+            export totals.
+          </p>
+
+        </div>
+
+        <div
+          id="chart6"
+          class="chart-container"
+        ></div>
+
+      </div>
+
+
+
+      <!-- CHART 7 -->
+
+      <div class="chart-card">
+
+        <div class="chart-intro">
+
+          <h3>
+            Which export markets have risen or fallen in importance?
+          </h3>
+
+          <p>
+            India recorded the sharpest recent rise, climbing from 22nd in
+            2019-20 to 6th in 2024-25 as exports increased from about
+            A$371 million to A$2.8 billion.
+          </p>
+
+        </div>
+
+        <div
+          id="chart7"
+          class="chart-container"
+        ></div>
+
+      </div>
+
     </section>
 
-    <section id="malaysia">
-      <h2>Malaysia and ASEAN</h2>
-      <div id="chart8" class="chart-container"></div>
-      <div id="chart9" class="chart-container"></div>
+
+
+    <!-- ==================================================
+         SECTION 04
+    =================================================== -->
+
+    <section class="story-section">
+
+      <div class="section-heading">
+
+        <p class="section-number">
+          04
+        </p>
+
+        <h2>
+          Zooming into ASEAN and Malaysia
+        </h2>
+
+        <p>
+          Southeast Asia is an important part of Australia's export network,
+          but individual ASEAN markets differ in both the scale and mix of
+          agricultural products they import.
+        </p>
+
+      </div>
+
+
+      <!-- CHART 8 -->
+
+      <div class="chart-card">
+
+        <div class="chart-intro">
+
+          <h3>
+            What does Australia export across ASEAN?
+          </h3>
+
+          <p>
+            ASEAN markets have noticeably different product mixes, showing
+            that Australian agricultural exports serve different types of
+            demand across the region.
+          </p>
+
+        </div>
+
+        <div
+          id="chart8"
+          class="chart-container"
+        ></div>
+
+      </div>
+
+
+
+      <!-- CHART 9 -->
+
+      <div class="chart-card">
+
+        <div class="chart-intro">
+
+          <h3>
+            What makes up Australia's agricultural exports to Malaysia?
+          </h3>
+
+          <p>
+            Malaysia received about A$1.9 billion of Australian agricultural
+            exports in 2024-25. Meat and live animals accounted for about 25%,
+            grains and cereals 23%, and dairy and eggs 15%.
+          </p>
+
+        </div>
+
+        <div
+          id="chart9"
+          class="chart-container"
+        ></div>
+
+      </div>
+
     </section>
 
-    <section id="dependence">
-      <h2>Export Dependence</h2>
-      <div id="chart10" class="chart-container"></div>
-      <div id="chart11" class="chart-container"></div>
+
+
+    <!-- ==================================================
+         SECTION 05
+    =================================================== -->
+
+    <section class="story-section">
+
+      <div class="section-heading">
+
+        <p class="section-number">
+          05
+        </p>
+
+        <h2>
+          How dependent is Australian agriculture on exports?
+        </h2>
+
+        <p>
+          Australia's reliance on international markets varies considerably
+          across states and commodities, leaving some parts of the sector
+          more export-oriented than others.
+        </p>
+
+      </div>
+
+
+      <!-- CHART 10 -->
+
+      <div class="chart-card">
+
+        <div class="chart-intro">
+
+          <h3>
+            Which states are more export-oriented?
+          </h3>
+
+          <p>
+            The value-based proxy suggests substantial differences across
+            Australia, with several states and territories near
+            three-quarters while Tasmania is closer to one-third.
+          </p>
+
+          <p class="chart-note">
+            This is a value-based proxy rather than a direct physical
+            share of production exported. State-of-origin export data and
+            production data represent different stages of the supply chain.
+          </p>
+
+        </div>
+
+        <div
+          id="chart10"
+          class="chart-container"
+        ></div>
+
+      </div>
+
+
+
+      <!-- CHART 11 -->
+
+      <div class="chart-card">
+
+        <div class="chart-intro">
+
+          <h3>
+            Which commodities rely most on export markets?
+          </h3>
+
+          <p>
+            Some commodities depend heavily on overseas demand: around
+            85% of canola, 82% of mutton and lamb, 77% of beef and veal,
+            and 75% of wheat production is exported.
+          </p>
+
+        </div>
+
+        <div
+          id="chart11"
+          class="chart-container"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         CONCLUSION
+    =================================================== -->
+
+    <section class="story-section conclusion-section">
+
+      <div class="section-heading">
+
+        <p class="section-number">
+          Conclusion
+        </p>
+
+        <h2>
+          Australia's food and agricultural sector is deeply connected to global markets
+        </h2>
+
+        <p>
+          Export growth has been accompanied by major changes in product
+          mix and destination markets. Asian economies now play a central
+          role, while different states and commodities show varying levels
+          of exposure to international demand.
+        </p>
+
+      </div>
+
     </section>
 
   </main>
 
-  <script src="js/main.js"></script>
+
+
+  <!-- ==================================================
+       FOOTER
+  =================================================== -->
+
+  <footer class="footer">
+
+    <p>
+      Data sources: ABARES, Australian Bureau of Statistics and
+      Australian Department of Foreign Affairs and Trade.
+    </p>
+
+    <p>
+      FIT3179 Data Visualisation
+    </p>
+
+  </footer>
+
+
+
+  <!-- ==================================================
+       CHART LOADING
+  =================================================== -->
+
+  <script src="js/vega_lite_vis.js"></script>
+
 </body>
+
 </html>

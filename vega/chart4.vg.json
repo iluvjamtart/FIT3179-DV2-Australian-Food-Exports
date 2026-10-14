@@ -1,0 +1,188 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+    "title": {
+      "text": "Which commodities changed most, 1994-95 to 2023-24?",
+      "subtitle": "Nominal A$ million. Not adjusted for inflation over the 30-year span; sorted by size of dollar change.",
+      "anchor": "start",
+      "subtitlePadding": 10,
+      "offset": 18
+    },
+  
+    "width": "container",
+    "height": 340,
+  
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+  
+    "data": {
+      "url": "data/chart4_commodity_change.csv"
+    },
+  
+    "layer": [
+      {
+        "mark": {
+          "type": "rule",
+          "strokeWidth": 3
+        },
+  
+        "encoding": {
+          "y": {
+            "field": "category",
+            "type": "nominal",
+            "title": null,
+            "sort": [
+              "Meat",
+              "Grains",
+              "Industrial crops",
+              "Other crops",
+              "Oilseeds",
+              "Pulses",
+              "Horticulture",
+              "Dairy",
+              "Other livestock products",
+              "Wool",
+              "Live animals"
+            ]
+          },
+  
+          "x": {
+            "field": "v_1994_95",
+            "type": "quantitative",
+            "title": "A$ million"
+          },
+  
+          "x2": {
+            "field": "v_2023_24"
+          },
+  
+          "stroke": {
+            "field": "direction",
+            "type": "nominal",
+            "title": "Change",
+            "scale": {
+              "domain": ["Increase", "Decrease"],
+              "range": ["#1b6b93", "#d97732"]
+            },
+  
+            "legend": {
+              "symbolType": "stroke"
+            }
+          },
+  
+          "tooltip": [
+            {
+              "field": "category",
+              "title": "Category"
+            },
+            {
+              "field": "v_1994_95",
+              "title": "1994-95 (A$ million)",
+              "format": ",.1f"
+            },
+            {
+              "field": "v_2023_24",
+              "title": "2023-24 (A$ million)",
+              "format": ",.1f"
+            },
+            {
+              "field": "change_aud_million",
+              "title": "Change (A$ million)",
+              "format": ",.1f"
+            },
+            {
+              "field": "direction",
+              "title": "Direction"
+            }
+          ]
+        }
+      },
+  
+      {
+        "transform": [
+          {
+            "fold": ["v_1994_95", "v_2023_24"],
+            "as": ["period_raw", "value"]
+          },
+          {
+            "calculate": "datum.period_raw == 'v_1994_95' ? '1994-95' : '2023-24'",
+            "as": "period"
+          }
+        ],
+  
+        "mark": {
+          "type": "circle",
+          "size": 100,
+          "opacity": 1
+        },
+  
+        "encoding": {
+          "y": {
+            "field": "category",
+            "type": "nominal",
+            "sort": [
+              "Meat",
+              "Grains",
+              "Industrial crops",
+              "Other crops",
+              "Oilseeds",
+              "Pulses",
+              "Horticulture",
+              "Dairy",
+              "Other livestock products",
+              "Wool",
+              "Live animals"
+            ]
+          },
+  
+          "x": {
+            "field": "value",
+            "type": "quantitative"
+          },
+  
+          "color": {
+            "field": "period",
+            "type": "nominal",
+            "title": "Year",
+            "scale": {
+              "domain": ["1994-95", "2023-24"],
+              "range": ["#9aa5ad", "#1b3a5c"]
+            }
+          },
+  
+          "tooltip": [
+            {
+              "field": "category",
+              "title": "Category"
+            },
+            {
+              "field": "period",
+              "title": "Year"
+            },
+            {
+              "field": "value",
+              "title": "A$ million",
+              "format": ",.1f"
+            }
+          ]
+        }
+      }
+    ],
+  
+    "config": {
+      "axis": {
+        "labelFontSize": 11
+      },
+  
+      "legend": {
+        "labelFontSize": 10,
+        "titleFontSize": 11
+      },
+  
+      "view": {
+        "stroke": null
+      }
+    }
+  }

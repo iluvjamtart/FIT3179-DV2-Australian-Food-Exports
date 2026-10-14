@@ -1,0 +1,152 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+    "title": {
+      "text": "Which Australian states are more export-oriented in agriculture?",
+      "subtitle": "Selected agricultural export value relative to agricultural production value, 2020-21. This is a value-based proxy, not the physical share of production exported.",
+      "anchor": "start",
+      "subtitlePadding": 10,
+      "offset": 18
+    },
+  
+    "width": "container",
+    "height": 520,
+  
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+  
+    "projection": {
+      "type": "mercator"
+    },
+  
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/refs/heads/master/states.geojson",
+          "format": {
+            "type": "json",
+            "property": "features"
+          }
+        },
+  
+        "mark": {
+          "type": "geoshape",
+          "fill": "#e6e2d8",
+          "stroke": "#ffffff",
+          "strokeWidth": 1
+        }
+      },
+  
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/refs/heads/master/states.geojson",
+          "format": {
+            "type": "json",
+            "property": "features"
+          }
+        },
+  
+        "transform": [
+          {
+            "lookup": "properties.STATE_NAME",
+            "from": {
+              "data": {
+                "url": "data/chart10_state_export_orientation.csv"
+              },
+              "key": "state",
+              "fields": [
+                "export_orientation_pct"
+              ]
+            }
+          },
+          {
+            "filter": "isValid(datum.export_orientation_pct)"
+          },
+          {
+            "calculate": "toNumber(datum.export_orientation_pct)",
+            "as": "export_pct"
+          },
+          {
+            "calculate": "datum.export_pct < 40 ? '30 - <40%' : datum.export_pct < 50 ? '40 - <50%' : datum.export_pct < 60 ? '50 - <60%' : datum.export_pct < 70 ? '60 - <70%' : '70 - 80%'",
+            "as": "export_class"
+          }
+        ],
+  
+        "mark": {
+          "type": "geoshape",
+          "stroke": "#ffffff",
+          "strokeWidth": 1
+        },
+  
+        "encoding": {
+          "color": {
+            "field": "export_class",
+            "type": "ordinal",
+            "title": "Export orientation (%)",
+            "scale": {
+              "domain": [
+                "30 - <40%",
+                "40 - <50%",
+                "50 - <60%",
+                "60 - <70%",
+                "70 - 80%"
+              ],
+              "range": [
+                "#bdd7e7",
+                "#6baed6",
+                "#3182bd",
+                "#08519c",
+                "#08306b"
+              ]
+            },
+            "legend": {
+              "title": "Export orientation (%)",
+              "orient": "right",
+              "labelFontSize": 13,
+              "titleFontSize": 14,
+              "symbolSize": 220,
+              "padding": 10
+            }
+          },
+  
+          "tooltip": [
+            {
+              "field": "properties.STATE_NAME",
+              "type": "nominal",
+              "title": "State / territory"
+            },
+            {
+              "field": "export_pct",
+              "type": "quantitative",
+              "title": "Export orientation (%)",
+              "format": ".1f"
+            },
+            {
+              "field": "export_class",
+              "type": "ordinal",
+              "title": "Class"
+            }
+          ]
+        }
+      }
+    ],
+  
+    "config": {
+      "view": {
+        "stroke": null
+      },
+  
+      "legend": {
+        "labelFontSize": 13,
+        "titleFontSize": 14,
+        "symbolSize": 220
+      },
+  
+      "title": {
+        "fontSize": 18,
+        "subtitleFontSize": 12
+      }
+    }
+  }

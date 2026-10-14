@@ -1,0 +1,186 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+    "title": {
+      "text": "How has Australia's agricultural export mix changed?",
+      "subtitle": "Nominal A$ million, 1994-95 to 2023-24 (actual years only)",
+      "anchor": "start",
+      "subtitlePadding": 10,
+      "offset": 18
+    },
+  
+    "width": "container",
+    "height": 420,
+  
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+  
+    "data": {
+      "url": "data/chart3_export_mix_over_time.csv"
+    },
+  
+    "transform": [
+      {
+        "filter": "datum.status == 'actual'"
+      }
+    ],
+  
+    "params": [
+      {
+        "name": "category_select",
+        "select": {
+          "type": "point",
+          "fields": ["category"],
+          "on": "click",
+          "clear": "dblclick"
+        },
+        "bind": "legend"
+      }
+    ],
+  
+    "mark": {
+      "type": "area",
+      "interpolate": "monotone"
+    },
+  
+    "encoding": {
+      "x": {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Financial year",
+  
+        "axis": {
+          "labelAngle": -60,
+          "labelFontSize": 11,
+  
+          "values": [
+            "1994-95",
+            "1999-00",
+            "2004-05",
+            "2009-10",
+            "2014-15",
+            "2019-20",
+            "2023-24"
+          ]
+        }
+      },
+  
+      "y": {
+        "field": "value_aud_million",
+        "type": "quantitative",
+        "stack": "center",
+        "title": null,
+        "axis": null
+      },
+  
+      "color": {
+        "field": "category",
+        "type": "nominal",
+        "title": "Category",
+  
+        "scale": {
+          "domain": [
+            "Grains",
+            "Oilseeds",
+            "Pulses",
+            "Industrial crops",
+            "Horticulture",
+            "Other crops",
+            "Meat",
+            "Live animals",
+            "Wool",
+            "Dairy",
+            "Other livestock products"
+          ],
+  
+          "range": [
+            "#0d4f6e",
+            "#1b6b93",
+            "#4089ab",
+            "#6aa8c2",
+            "#94c6d9",
+            "#c2e0ec",
+            "#8a3a0a",
+            "#c2540f",
+            "#e07a3e",
+            "#ec9c6b",
+            "#f5c29a"
+          ]
+        },
+  
+        "legend": {
+          "title": "Category",
+          "columns": 2,
+  
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+  
+          "symbolType": "square",
+          "symbolSize": 120,
+  
+          "labelLimit": 190,
+  
+          "columnPadding": 16,
+          "rowPadding": 4
+        }
+      },
+  
+      "opacity": {
+        "condition": {
+          "param": "category_select",
+          "value": 1
+        },
+        "value": 0.18
+      },
+  
+      "order": {
+        "field": "category",
+        "sort": "ascending"
+      },
+  
+      "tooltip": [
+        {
+          "field": "year",
+          "title": "Year"
+        },
+        {
+          "field": "branch",
+          "title": "Branch"
+        },
+        {
+          "field": "category",
+          "title": "Category"
+        },
+        {
+          "field": "value_aud_million",
+          "title": "A$ million",
+          "format": ",.0f"
+        }
+      ]
+    },
+  
+    "config": {
+      "axis": {
+        "labelFontSize": 11,
+        "titleFontSize": 12
+      },
+  
+      "legend": {
+        "labelFontSize": 12,
+        "titleFontSize": 13,
+        "titleFontWeight": "bold",
+        "symbolSize": 120
+      },
+  
+      "title": {
+        "fontSize": 18,
+        "subtitleFontSize": 12
+      },
+  
+      "view": {
+        "stroke": null
+      }
+    }
+  }

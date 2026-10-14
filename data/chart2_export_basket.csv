@@ -1,0 +1,16 @@
+id,name,parent,value
+root,"Australian agriculture and food exports, 2024-25",,
+crops,Crops,root,
+livestock,Livestock and livestock products,root,
+fisheries,Fisheries,root,
+grains,Grains,crops,13448.5
+oilseeds,Oilseeds,crops,5238.1
+pulses,Pulses,crops,4088.7
+industrial_crops,Industrial crops,crops,8055.6
+horticulture,Horticulture,crops,4191.8
+crops_other,Other crops,crops,6459.8
+meat,Meat,livestock,23788.0
+live_animals,Live animals,livestock,1217.6
+wool,Wool,livestock,2757.5
+dairy,Dairy,livestock,3726.8
+livestock_other,Other livestock products,livestock,2860.4

@@ -1,0 +1,11 @@
+region,country,export_value_aud_million,hub_lat,hub_lon,dest_lat,dest_lon
+East Asia,China,15998.1,30,125,39.9042,116.4074
+East Asia,Japan,6079.1,30,125,35.6762,139.6503
+East Asia,Republic of Korea,4605.5,30,125,37.5665,126.978
+Southeast Asia,Indonesia,4417.2,10,110,-6.2088,106.8456
+Southeast Asia,Vietnam,2690.6,10,110,21.0285,105.8542
+Southeast Asia,Philippines,1981.1,10,110,14.5995,120.9842
+Southeast Asia,Malaysia,1897.1,10,110,3.139,101.6869
+South Asia,India,2787.1,20,80,28.6139,77.209
+North America,United States,8760.6,38,-100,38.9072,-77.0369
+Oceania,New Zealand,2583.9,-32,165,-41.2865,174.7762

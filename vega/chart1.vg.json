@@ -1,0 +1,443 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+    "title": {
+      "text": "Australia's farm production and agricultural exports, 1994-95 to 2026-27",
+      "subtitle": "Nominal A$ billion. Production: 2023-24 to 2025-26 are ABARES estimates, 2026-27 is a forecast. Exports: 2024-25 is an ABARES estimate, 2025-26 to 2026-27 are forecasts.",
+      "anchor": "start",
+      "subtitlePadding": 10,
+      "offset": 18
+    },
+  
+    "width": "container",
+    "height": 380,
+  
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+  
+    "data": {
+      "url": "data/chart1_production_exports.csv"
+    },
+  
+    "transform": [
+      {
+        "calculate": "datum.value_aud_million / 1000",
+        "as": "value_aud_billion"
+      }
+    ],
+  
+    "encoding": {
+      "x": {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Financial year",
+        "axis": {
+          "labelAngle": -60
+        },
+        "sort": [
+          "1994-95",
+          "1995-96",
+          "1996-97",
+          "1997-98",
+          "1998-99",
+          "1999-00",
+          "2000-01",
+          "2001-02",
+          "2002-03",
+          "2003-04",
+          "2004-05",
+          "2005-06",
+          "2006-07",
+          "2007-08",
+          "2008-09",
+          "2009-10",
+          "2010-11",
+          "2011-12",
+          "2012-13",
+          "2013-14",
+          "2014-15",
+          "2015-16",
+          "2016-17",
+          "2017-18",
+          "2018-19",
+          "2019-20",
+          "2020-21",
+          "2021-22",
+          "2022-23",
+          "2023-24",
+          "2024-25",
+          "2025-26",
+          "2026-27"
+        ]
+      },
+  
+      "y": {
+        "field": "value_aud_billion",
+        "type": "quantitative",
+        "title": "A$ billion"
+      },
+  
+      "tooltip": [
+        {
+          "field": "year",
+          "title": "Year"
+        },
+        {
+          "field": "series",
+          "title": "Series"
+        },
+        {
+          "field": "value_aud_billion",
+          "title": "A$ billion",
+          "format": ",.1f"
+        },
+        {
+          "field": "status",
+          "title": "Status"
+        }
+      ]
+    },
+  
+    "layer": [
+  
+      {
+        "transform": [
+          {
+            "filter": "datum.status == 'actual'"
+          },
+          {
+            "calculate": "'Actual'",
+            "as": "line_status"
+          }
+        ],
+  
+        "mark": {
+          "type": "line"
+        },
+  
+        "encoding": {
+          "color": {
+            "field": "series",
+            "type": "nominal",
+            "title": "Series",
+            "scale": {
+              "domain": [
+                "Farm production value",
+                "Agricultural export value"
+              ],
+              "range": [
+                "#1b6b93",
+                "#e07a3e"
+              ]
+            },
+            "legend": {
+              "title": "Series",
+              "symbolType": "stroke"
+            }
+          },
+  
+          "strokeDash": {
+            "field": "line_status",
+            "type": "nominal",
+            "title": "Line status",
+            "scale": {
+              "domain": [
+                "Actual",
+                "Estimate",
+                "Forecast"
+              ],
+              "range": [
+                [1, 0],
+                [6, 3],
+                [2, 2]
+              ]
+            },
+            "legend": {
+              "title": "Line status",
+              "symbolType": "stroke"
+            }
+          }
+        }
+      },
+  
+      {
+        "transform": [
+          {
+            "filter": "(datum.series == 'Farm production value' && datum.status == 'actual' && datum.year == '2022-23') || (datum.series == 'Agricultural export value' && datum.status == 'actual' && datum.year == '2023-24') || datum.status == 'estimate'"
+          },
+          {
+            "calculate": "'Estimate'",
+            "as": "line_status"
+          }
+        ],
+  
+        "mark": {
+          "type": "line",
+          "opacity": 0.9
+        },
+  
+        "encoding": {
+          "color": {
+            "field": "series",
+            "type": "nominal",
+            "title": "Series",
+            "scale": {
+              "domain": [
+                "Farm production value",
+                "Agricultural export value"
+              ],
+              "range": [
+                "#1b6b93",
+                "#e07a3e"
+              ]
+            },
+            "legend": {
+              "title": "Series",
+              "symbolType": "stroke"
+            }
+          },
+  
+          "strokeDash": {
+            "field": "line_status",
+            "type": "nominal",
+            "title": "Line status",
+            "scale": {
+              "domain": [
+                "Actual",
+                "Estimate",
+                "Forecast"
+              ],
+              "range": [
+                [1, 0],
+                [6, 3],
+                [2, 2]
+              ]
+            },
+            "legend": {
+              "title": "Line status",
+              "symbolType": "stroke"
+            }
+          }
+        }
+      },
+  
+      {
+        "transform": [
+          {
+            "filter": "(datum.series == 'Farm production value' && datum.status == 'estimate' && datum.year == '2025-26') || (datum.series == 'Agricultural export value' && datum.status == 'estimate' && datum.year == '2024-25') || datum.status == 'forecast'"
+          },
+          {
+            "calculate": "'Forecast'",
+            "as": "line_status"
+          }
+        ],
+  
+        "mark": {
+          "type": "line",
+          "opacity": 0.9
+        },
+  
+        "encoding": {
+          "color": {
+            "field": "series",
+            "type": "nominal",
+            "title": "Series",
+            "scale": {
+              "domain": [
+                "Farm production value",
+                "Agricultural export value"
+              ],
+              "range": [
+                "#1b6b93",
+                "#e07a3e"
+              ]
+            },
+            "legend": {
+              "title": "Series",
+              "symbolType": "stroke"
+            }
+          },
+  
+          "strokeDash": {
+            "field": "line_status",
+            "type": "nominal",
+            "title": "Line status",
+            "scale": {
+              "domain": [
+                "Actual",
+                "Estimate",
+                "Forecast"
+              ],
+              "range": [
+                [1, 0],
+                [6, 3],
+                [2, 2]
+              ]
+            },
+            "legend": {
+              "title": "Line status",
+              "symbolType": "stroke"
+            }
+          }
+        }
+      },
+  
+      {
+        "transform": [
+          {
+            "filter": "datum.status != 'forecast'"
+          }
+        ],
+  
+        "mark": {
+          "type": "point",
+          "filled": true,
+          "size": 45
+        },
+  
+        "encoding": {
+          "fill": {
+            "field": "series",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Farm production value",
+                "Agricultural export value"
+              ],
+              "range": [
+                "#1b6b93",
+                "#e07a3e"
+              ]
+            },
+            "legend": null
+          },
+  
+          "stroke": {
+            "field": "series",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Farm production value",
+                "Agricultural export value"
+              ],
+              "range": [
+                "#1b6b93",
+                "#e07a3e"
+              ]
+            },
+            "legend": null
+          }
+        }
+      },
+  
+      {
+        "transform": [
+          {
+            "filter": "datum.status == 'forecast'"
+          }
+        ],
+  
+        "mark": {
+          "type": "point",
+          "filled": true,
+          "fill": "white",
+          "size": 55,
+          "strokeWidth": 2
+        },
+  
+        "encoding": {
+          "stroke": {
+            "field": "series",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Farm production value",
+                "Agricultural export value"
+              ],
+              "range": [
+                "#1b6b93",
+                "#e07a3e"
+              ]
+            },
+            "legend": null
+          }
+        }
+      },
+  
+      {
+        "data": {
+          "values": [
+            {
+              "point_status": "Filled = actual / estimate",
+              "dummy_x": "A",
+              "dummy_y": 0
+            },
+            {
+              "point_status": "Hollow = forecast",
+              "dummy_x": "A",
+              "dummy_y": 0
+            }
+          ]
+        },
+  
+        "mark": {
+          "type": "point",
+          "size": 90
+        },
+  
+        "encoding": {
+          "opacity": {
+            "value": 0
+          },
+  
+          "shape": {
+            "field": "point_status",
+            "type": "nominal",
+            "title": "Point style",
+            "scale": {
+              "domain": [
+                "Filled = actual / estimate",
+                "Hollow = forecast"
+              ],
+              "range": [
+                "circle",
+                "circle"
+              ]
+            },
+            "legend": {
+              "title": "Point style",
+              "symbolType": "circle"
+            }
+          }
+        }
+      }
+    ],
+  
+    "resolve": {
+      "scale": {
+        "color": "shared",
+        "strokeDash": "shared"
+      }
+    },
+  
+    "config": {
+      "axis": {
+        "labelFontSize": 10
+      },
+  
+      "legend": {
+        "labelFontSize": 11,
+        "titleFontSize": 11,
+        "titleFontWeight": "bold",
+        "orient": "right",
+        "padding": 8,
+        "offset": 10
+      },
+  
+      "view": {
+        "stroke": null
+      }
+    }
+  }
