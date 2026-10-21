@@ -3,7 +3,10 @@
   
     "title": {
       "text": "How has Australia's agricultural export mix changed?",
-      "subtitle": "Nominal A$ million, 1994-95 to 2023-24 (actual years only)",
+      "subtitle": [
+        "Nominal A$ million, 1994-95 to 2023-24 (actual years only)",
+        "Layer thickness represents export value"
+      ],
       "anchor": "start",
       "subtitlePadding": 10,
       "offset": 18
@@ -176,7 +179,8 @@
   
       "title": {
         "fontSize": 18,
-        "subtitleFontSize": 12
+        "subtitleFontSize": 12,
+        "subtitleLineHeight": 17
       },
   
       "view": {

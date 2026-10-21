@@ -43,6 +43,22 @@
   
       {
         "data": {
+          "graticule": {
+            "step": [20, 20]
+          }
+        },
+  
+        "mark": {
+          "type": "geoshape",
+          "fill": null,
+          "stroke": "#cfcac1",
+          "strokeWidth": 0.5,
+          "opacity": 0.65
+        }
+      },
+  
+      {
+        "data": {
           "url": "data/chart6_region_flows.csv"
         },
   

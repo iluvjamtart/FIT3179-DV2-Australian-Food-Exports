@@ -1,5 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
     "title": {
       "text": "Where are Australia's major agricultural export markets?",
       "subtitle": "Top 20 destinations by export value, 2024-25. Nominal A$ million; excludes fisheries and forestry.",
@@ -7,15 +8,19 @@
       "subtitlePadding": 10,
       "offset": 18
     },
+  
     "width": "container",
     "height": 480,
+  
     "autosize": {
       "type": "fit",
       "contains": "padding"
     },
+  
     "projection": {
       "type": "equalEarth"
     },
+  
     "layer": [
       {
         "data": {
@@ -25,6 +30,7 @@
             "feature": "countries"
           }
         },
+  
         "mark": {
           "type": "geoshape",
           "fill": "#e6e2d8",
@@ -35,41 +41,66 @@
   
       {
         "data": {
+          "graticule": {
+            "step": [20, 20]
+          }
+        },
+  
+        "mark": {
+          "type": "geoshape",
+          "fill": null,
+          "stroke": "#cfcac1",
+          "strokeWidth": 0.5,
+          "opacity": 0.65
+        }
+      },
+  
+      {
+        "data": {
           "url": "data/chart5_destinations.csv"
         },
+  
         "mark": {
           "type": "circle",
           "opacity": 0.72,
           "stroke": "#ffffff",
           "strokeWidth": 0.8
         },
+  
         "encoding": {
           "longitude": {
             "field": "longitude",
             "type": "quantitative"
           },
+  
           "latitude": {
             "field": "latitude",
             "type": "quantitative"
           },
+  
           "size": {
             "field": "export_value_aud_million",
             "type": "quantitative",
             "title": "Export value (A$ million)",
+  
             "scale": {
               "range": [50, 1800]
             },
+  
             "legend": {
               "title": "A$ million"
             }
           },
+  
           "color": {
             "condition": {
               "test": "datum.country == 'Malaysia'",
               "value": "#e07a3e"
             },
+  
             "value": "#1b6b93"
           },
+  
           "tooltip": [
             {
               "field": "country",
@@ -95,11 +126,13 @@
         "data": {
           "url": "data/chart5_destinations.csv"
         },
+  
         "transform": [
           {
             "filter": "datum.country == 'Malaysia'"
           }
         ],
+  
         "mark": {
           "type": "text",
           "align": "left",
@@ -110,15 +143,18 @@
           "fontWeight": "bold",
           "color": "#b85c2e"
         },
+  
         "encoding": {
           "longitude": {
             "field": "longitude",
             "type": "quantitative"
           },
+  
           "latitude": {
             "field": "latitude",
             "type": "quantitative"
           },
+  
           "text": {
             "value": "Malaysia"
           }
@@ -130,10 +166,12 @@
       "view": {
         "stroke": null
       },
+  
       "legend": {
         "labelFontSize": 10,
         "titleFontSize": 11
       },
+  
       "title": {
         "fontSize": 18,
         "subtitleFontSize": 12
