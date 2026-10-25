@@ -3,7 +3,7 @@
   
     "title": {
       "text": "Which Australian states are more export-oriented in agriculture?",
-      "subtitle": "Selected agricultural export value relative to agricultural production value, 2020-21. This is a value-based proxy, not the physical share of production exported.",
+      "subtitle": "Selected agricultural export value relative to agricultural production value, 2020-21.",
       "anchor": "start",
       "subtitlePadding": 10,
       "offset": 18

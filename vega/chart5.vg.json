@@ -3,7 +3,8 @@
   
     "title": {
       "text": "Where are Australia's major agricultural export markets?",
-      "subtitle": "Top 20 destinations by export value, 2024-25. Nominal A$ million; excludes fisheries and forestry.",
+      "subtitle": ["Top 20 destinations by export value, 2024-25. Nominal A$ million; excludes fisheries and forestry.",
+      "Malaysia is highlighted as the focus market for the following section."],
       "anchor": "start",
       "subtitlePadding": 10,
       "offset": 18
