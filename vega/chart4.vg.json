@@ -64,7 +64,7 @@
             "title": "Change",
             "scale": {
               "domain": ["Increase", "Decrease"],
-              "range": ["#1b6b93", "#d97732"]
+              "range": ["#4c9f70", "#c94c4c"]
             },
   
             "legend": {

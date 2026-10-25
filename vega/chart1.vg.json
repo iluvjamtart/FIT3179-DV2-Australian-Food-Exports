@@ -128,8 +128,8 @@
                 "Agricultural export value"
               ],
               "range": [
-                "#1b6b93",
-                "#e07a3e"
+                "#7a5aa6",
+                "#4c9f70"
               ]
             },
             "legend": {
@@ -189,8 +189,8 @@
                 "Agricultural export value"
               ],
               "range": [
-                "#1b6b93",
-                "#e07a3e"
+                "#7a5aa6",
+                "##4c9f70"
               ]
             },
             "legend": {
@@ -250,8 +250,8 @@
                 "Agricultural export value"
               ],
               "range": [
-                "#1b6b93",
-                "#e07a3e"
+                "#7a5aa6",
+                "#4c9f70"
               ]
             },
             "legend": {
@@ -307,8 +307,8 @@
                 "Agricultural export value"
               ],
               "range": [
-                "#1b6b93",
-                "#e07a3e"
+                "#7a5aa6",
+                "#4c9f70"
               ]
             },
             "legend": null
@@ -323,8 +323,8 @@
                 "Agricultural export value"
               ],
               "range": [
-                "#1b6b93",
-                "#e07a3e"
+                "#7a5aa6",
+                "#4c9f70"
               ]
             },
             "legend": null
@@ -357,8 +357,8 @@
                 "Agricultural export value"
               ],
               "range": [
-                "#1b6b93",
-                "#e07a3e"
+                "#7a5aa6",
+                "##4c9f70"
               ]
             },
             "legend": null

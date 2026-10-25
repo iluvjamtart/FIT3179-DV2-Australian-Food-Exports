@@ -1,181 +1,216 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  
-    "title": {
-      "text": "How have Australia's major agricultural export markets changed in rank?",
-      "subtitle": "Rank among all agricultural export destinations at five benchmark years. Selected countries are the top 10 markets in 2024-25; excludes fisheries and forestry.",
-      "anchor": "start",
-      "subtitlePadding": 10,
-      "offset": 18
-    },
-  
-    "width": "container",
-    "height": 500,
-  
-    "autosize": {
-      "type": "fit",
-      "contains": "padding"
-    },
-  
-    "data": {
-      "url": "data/chart7_market_ranks.csv"
-    },
-  
-    "params": [
-      {
-        "name": "country_select",
-        "select": {
-          "type": "point",
-          "fields": ["country"]
-        },
-        "bind": "legend"
-      }
-    ],
-  
-    "mark": {
-      "type": "line",
-      "strokeWidth": 2.5,
-      "point": {
-        "filled": true,
-        "size": 75
-      }
-    },
-  
-    "encoding": {
-      "x": {
-        "field": "year",
-        "type": "ordinal",
-        "title": "Financial year",
-  
-        "sort": [
-          "2005-06",
-          "2009-10",
-          "2014-15",
-          "2019-20",
-          "2024-25"
-        ],
-  
-        "axis": {
-          "labelAngle": 0
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "How have Australia's major agricultural export markets changed in rank?",
+    "subtitle": "Rank among all agricultural export destinations at five benchmark years. Selected countries are the top 10 markets in 2024-25; excludes fisheries and forestry.",
+    "anchor": "start",
+    "subtitlePadding": 10,
+    "offset": 18
+  },
+
+  "width": "container",
+  "height": 500,
+
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+
+  "data": {
+    "url": "data/chart7_market_ranks.csv"
+  },
+
+  "transform": [
+    {
+      "calculate": "datum.country == 'Malaysia' ? 'Malaysia' : datum.country == 'India' ? 'India' : datum.country == 'Vietnam' ? 'Vietnam' : 'Other'",
+      "as": "highlight"
+    }
+  ],
+
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5,
+        "point": {
+          "filled": true,
+          "size": 75
         }
       },
-  
-      "y": {
-        "field": "rank",
-        "type": "quantitative",
-        "title": "Destination rank",
-  
-        "scale": {
-          "domain": [1, 22],
-          "reverse": true
-        },
-  
-        "axis": {
-          "tickMinStep": 1,
-          "values": [1, 5, 10, 15, 20]
-        }
-      },
-  
-      "color": {
-        "field": "country",
-        "type": "nominal",
-        "title": "Country",
-  
-        "scale": {
-          "domain": [
-            "China",
-            "United States",
-            "Japan",
-            "Republic of Korea",
-            "Indonesia",
-            "India",
-            "Vietnam",
-            "New Zealand",
-            "Philippines",
-            "Malaysia"
-          ],
-  
-          "range": [
-            "#1b3a5c",
-            "#3f6f8f",
-            "#6c8fa6",
-            "#8aa7b8",
-            "#4f7c63",
-            "#9a7650",
-            "#7b7b7b",
-            "#9fa6aa",
-            "#b0b7bb",
-            "#e07a3e"
-          ]
-        },
-  
-        "legend": {
-          "title": "Country",
-          "labelFontSize": 12,
-          "titleFontSize": 13,
-          "symbolSize": 120,
-          "rowPadding": 4
-        }
-      },
-  
-      "opacity": {
-        "condition": {
-          "param": "country_select",
-          "value": 1
-        },
-        "value": 0.12
-      },
-  
-      "detail": {
-        "field": "country"
-      },
-  
-      "tooltip": [
-        {
-          "field": "country",
-          "type": "nominal",
-          "title": "Country"
-        },
-        {
+
+      "encoding": {
+        "x": {
           "field": "year",
           "type": "ordinal",
-          "title": "Year"
+          "title": "Financial year",
+
+          "sort": [
+            "2005-06",
+            "2009-10",
+            "2014-15",
+            "2019-20",
+            "2024-25"
+          ],
+
+          "axis": {
+            "labelAngle": 0
+          }
         },
-        {
+
+        "y": {
           "field": "rank",
           "type": "quantitative",
-          "title": "Rank",
-          "format": ".0f"
+          "title": "Destination rank",
+
+          "scale": {
+            "domain": [1, 22],
+            "reverse": true
+          },
+
+          "axis": {
+            "tickMinStep": 1,
+            "values": [1, 5, 10, 15, 20]
+          }
         },
-        {
-          "field": "export_value_aud_million",
-          "type": "quantitative",
-          "title": "Export value (A$ million)",
-          "format": ",.1f"
-        }
-      ]
+
+        "color": {
+          "field": "highlight",
+          "type": "nominal",
+
+          "scale": {
+            "domain": [
+              "Other",
+              "India",
+              "Vietnam",
+              "Malaysia"
+            ],
+
+            "range": [
+              "#9aa1a3",
+              "#c65a8a",
+              "#402E2A",
+              "#d97732"
+            ]
+          },
+
+          "legend": null
+        },
+
+        "detail": {
+          "field": "country"
+        },
+
+        "tooltip": [
+          {
+            "field": "country",
+            "type": "nominal",
+            "title": "Country"
+          },
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "rank",
+            "type": "quantitative",
+            "title": "Rank",
+            "format": ".0f"
+          },
+          {
+            "field": "export_value_aud_million",
+            "type": "quantitative",
+            "title": "Export value (A$ million)",
+            "format": ",.1f"
+          }
+        ]
+      }
     },
-  
-    "config": {
-      "view": {
-        "stroke": null
+
+    {
+      "transform": [
+        {
+          "filter": "datum.year == '2024-25'"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 10,
+        "fontSize": 11,
+        "fontWeight": "bold"
       },
-  
-      "axis": {
-        "labelFontSize": 11,
-        "titleFontSize": 12
-      },
-  
-      "legend": {
-        "labelFontSize": 12,
-        "titleFontSize": 13,
-        "titleFontWeight": "bold",
-        "symbolSize": 120
-      },
-  
-      "title": {
-        "fontSize": 18,
-        "subtitleFontSize": 12
+
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+
+          "sort": [
+            "2005-06",
+            "2009-10",
+            "2014-15",
+            "2019-20",
+            "2024-25"
+          ]
+        },
+
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+
+          "scale": {
+            "domain": [1, 22],
+            "reverse": true
+          }
+        },
+
+        "text": {
+          "field": "country"
+        },
+
+        "color": {
+          "field": "highlight",
+          "type": "nominal",
+
+          "scale": {
+            "domain": [
+              "Other",
+              "India",
+              "Vietnam",
+              "Malaysia"
+            ],
+
+            "range": [
+              "#666666",
+              "#c65a8a",
+              "#9f7f1f",
+              "#d97732"
+            ]
+          },
+
+          "legend": null
+        }
       }
     }
+  ],
+
+  "config": {
+    "view": {
+      "stroke": null
+    },
+
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+
+    "title": {
+      "fontSize": 18,
+      "subtitleFontSize": 12
+    }
   }
+}

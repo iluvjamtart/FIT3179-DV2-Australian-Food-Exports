@@ -1,164 +1,164 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  
-    "title": {
-      "text": "What makes up Australia's agricultural exports to Malaysia?",
-      "subtitle": "Composition of agricultural exports to Malaysia, 2024-25. Each square represents approximately 1% of export value.",
-      "anchor": "start",
-      "subtitlePadding": 10,
-      "offset": 18
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "What makes up Australia's agricultural exports to Malaysia?",
+    "subtitle": "Composition of agricultural exports to Malaysia, 2024-25. Each square represents approximately 1% of export value.",
+    "anchor": "start",
+    "subtitlePadding": 10,
+    "offset": 18
+  },
+
+  "width": 430,
+  "height": 430,
+
+  "data": {
+    "sequence": {
+      "start": 0,
+      "stop": 100,
+      "step": 1,
+      "as": "square"
+    }
+  },
+
+  "params": [
+    {
+      "name": "category_select",
+      "select": {
+        "type": "point",
+        "fields": ["category"],
+        "on": "click",
+        "clear": "dblclick"
+      },
+      "bind": "legend"
+    }
+  ],
+
+  "transform": [
+    {
+      "calculate": "datum.square % 10",
+      "as": "column"
     },
-  
-    "width": 430,
-    "height": 430,
-  
-    "data": {
-      "sequence": {
-        "start": 0,
-        "stop": 100,
-        "step": 1,
-        "as": "square"
-      }
+    {
+      "calculate": "9 - floor(datum.square / 10)",
+      "as": "row"
     },
-  
-    "params": [
-      {
-        "name": "category_select",
-        "select": {
-          "type": "point",
-          "fields": ["category"],
-          "on": "click",
-          "clear": "dblclick"
-        },
-        "bind": "legend"
-      }
-    ],
-  
-    "transform": [
-      {
-        "calculate": "datum.square % 10",
-        "as": "column"
-      },
-      {
-        "calculate": "9 - floor(datum.square / 10)",
-        "as": "row"
-      },
-      {
-        "calculate": "datum.square < 3 ? 'Beverages' : datum.square < 6 ? 'Sugar cocoa coffee & spices' : datum.square < 11 ? 'Fruit & vegetables' : datum.square < 18 ? 'Other agricultural products' : datum.square < 27 ? 'Oilseeds oils & fats' : datum.square < 36 ? 'Fibres hides & raw materials' : datum.square < 51 ? 'Dairy & eggs' : datum.square < 74 ? 'Grains & cereals' : 'Meat & live animals'",
-        "as": "category"
-      },
-      {
-        "calculate": "datum.category == 'Meat & live animals' ? 482.6 : datum.category == 'Grains & cereals' ? 430.3 : datum.category == 'Dairy & eggs' ? 287.2 : datum.category == 'Fibres hides & raw materials' ? 178.0 : datum.category == 'Oilseeds oils & fats' ? 167.1 : datum.category == 'Other agricultural products' ? 133.2 : datum.category == 'Fruit & vegetables' ? 101.8 : datum.category == 'Sugar cocoa coffee & spices' ? 64.2 : 52.8",
-        "as": "value_aud_million"
-      }
-    ],
-  
-    "mark": {
-      "type": "square",
-      "size": 1300,
-      "stroke": "#ffffff",
-      "strokeWidth": 1
+    {
+      "calculate": "datum.square < 3 ? 'Beverages' : datum.square < 6 ? 'Sugar cocoa coffee & spices' : datum.square < 11 ? 'Fruit & vegetables' : datum.square < 18 ? 'Other agricultural products' : datum.square < 27 ? 'Oilseeds oils & fats' : datum.square < 36 ? 'Fibres hides & raw materials' : datum.square < 51 ? 'Dairy & eggs' : datum.square < 74 ? 'Grains & cereals' : 'Meat & live animals'",
+      "as": "category"
     },
-  
-    "encoding": {
-      "x": {
-        "field": "column",
-        "type": "ordinal",
-        "axis": null
-      },
-  
-      "y": {
-        "field": "row",
-        "type": "ordinal",
-        "axis": null
-      },
-  
-      "color": {
-        "field": "category",
-        "type": "nominal",
-        "title": "Product group",
-  
-        "scale": {
-          "domain": [
-            "Beverages",
-            "Sugar cocoa coffee & spices",
-            "Fruit & vegetables",
-            "Other agricultural products",
-            "Oilseeds oils & fats",
-            "Fibres hides & raw materials",
-            "Dairy & eggs",
-            "Grains & cereals",
-            "Meat & live animals"
-          ],
-  
-          "range": [
-            "#9FB7A6",
-            "#D8B45A",
-            "#A9C7D8",
-            "#C4B8AA",
-            "#6FA6BF",
-            "#8C8178",
-            "#D9A07C",
-            "#3F7F9F",
-            "#B85C2E"
-          ]
-        },
-  
-        "legend": {
-          "title": "Product group",
-          "orient": "right",
-  
-          "labelFontSize": 12,
-          "titleFontSize": 13,
-  
-          "symbolType": "square",
-          "symbolSize": 150,
-  
-          "labelLimit": 220,
-          "rowPadding": 5,
-          "padding": 10
-        }
-      },
-  
-      "opacity": {
-        "condition": {
-          "param": "category_select",
-          "value": 1
-        },
-        "value": 0.15
-      },
-  
-      "tooltip": [
-        {
-          "field": "category",
-          "type": "nominal",
-          "title": "Product group"
-        },
-        {
-          "field": "value_aud_million",
-          "type": "quantitative",
-          "title": "Export value (A$ million)",
-          "format": ",.1f"
-        }
-      ]
+    {
+      "calculate": "datum.category == 'Meat & live animals' ? 482.6 : datum.category == 'Grains & cereals' ? 430.3 : datum.category == 'Dairy & eggs' ? 287.2 : datum.category == 'Fibres hides & raw materials' ? 178.0 : datum.category == 'Oilseeds oils & fats' ? 167.1 : datum.category == 'Other agricultural products' ? 133.2 : datum.category == 'Fruit & vegetables' ? 101.8 : datum.category == 'Sugar cocoa coffee & spices' ? 64.2 : 52.8",
+      "as": "value_aud_million"
+    }
+  ],
+
+  "mark": {
+    "type": "square",
+    "size": 1300,
+    "stroke": "#ffffff",
+    "strokeWidth": 1
+  },
+
+  "encoding": {
+    "x": {
+      "field": "column",
+      "type": "ordinal",
+      "axis": null
     },
-  
-    "config": {
-      "view": {
-        "stroke": null
+
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "axis": null
+    },
+
+    "color": {
+      "field": "category",
+      "type": "nominal",
+      "title": "Product group",
+
+      "scale": {
+        "domain": [
+          "Beverages",
+          "Sugar cocoa coffee & spices",
+          "Fruit & vegetables",
+          "Other agricultural products",
+          "Oilseeds oils & fats",
+          "Fibres hides & raw materials",
+          "Dairy & eggs",
+          "Grains & cereals",
+          "Meat & live animals"
+        ],
+
+        "range": [
+          "#8fa3a0",
+          "#A9BCD0",
+          "#BAD1CD",
+          "#b8b0a3",
+          "#6f7f8d",
+          "#7d7975",
+          "#482728",
+          "#BC9EC1",
+          "#8f5361"
+        ]
       },
-  
+
       "legend": {
+        "title": "Product group",
+        "orient": "right",
+
         "labelFontSize": 12,
         "titleFontSize": 13,
-        "titleFontWeight": "bold",
+
+        "symbolType": "square",
         "symbolSize": 150,
-        "orient": "right"
-      },
-  
-      "title": {
-        "fontSize": 18,
-        "subtitleFontSize": 12
+
+        "labelLimit": 220,
+        "rowPadding": 5,
+        "padding": 10
       }
+    },
+
+    "opacity": {
+      "condition": {
+        "param": "category_select",
+        "value": 1
+      },
+      "value": 0.15
+    },
+
+    "tooltip": [
+      {
+        "field": "category",
+        "type": "nominal",
+        "title": "Product group"
+      },
+      {
+        "field": "value_aud_million",
+        "type": "quantitative",
+        "title": "Export value (A$ million)",
+        "format": ",.1f"
+      }
+    ]
+  },
+
+  "config": {
+    "view": {
+      "stroke": null
+    },
+
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "titleFontWeight": "bold",
+      "symbolSize": 150,
+      "orient": "right"
+    },
+
+    "title": {
+      "fontSize": 18,
+      "subtitleFontSize": 12
     }
   }
+}

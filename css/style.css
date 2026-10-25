@@ -308,6 +308,12 @@ main {
   color: var(--muted);
 }
 
+/* Space between consecutive explanation paragraphs */
+
+.chart-intro > p:not(.chart-note) + p:not(.chart-note) {
+  margin-top: 14px;
+}
+
 
 /* =====================================================
    CHART NOTES / METHODOLOGY CALLOUT
