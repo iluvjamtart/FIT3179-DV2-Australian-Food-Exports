@@ -83,6 +83,7 @@
           "field": "export_class",
           "type": "ordinal",
           "title": "Export orientation (%)",
+
           "scale": {
             "domain": [
               "30 - <40%",
@@ -99,13 +100,15 @@
               "#08306b"
             ]
           },
+
           "legend": {
             "title": "Export orientation (%)",
             "orient": "right",
-            "labelFontSize": 10,
-            "titleFontSize": 11,
-            "symbolSize": 130,
-            "padding": 8
+            "labelFontSize": 12,
+            "titleFontSize": 13,
+            "titleFontWeight": "bold",
+            "symbolSize": 160,
+            "padding": 10
           }
         },
 
@@ -212,9 +215,10 @@
     },
 
     "legend": {
-      "labelFontSize": 10,
-      "titleFontSize": 11,
-      "symbolSize": 130
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "titleFontWeight": "bold",
+      "symbolSize": 160
     },
 
     "title": {
