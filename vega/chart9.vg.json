@@ -107,13 +107,11 @@
       "legend": {
         "title": "Product group",
         "orient": "right",
-
         "labelFontSize": 12,
         "titleFontSize": 13,
-
+        "titleFontWeight": "bold",
         "symbolType": "square",
-        "symbolSize": 150,
-
+        "symbolSize": 160,
         "labelLimit": 220,
         "rowPadding": 5,
         "padding": 10
@@ -152,7 +150,7 @@
       "labelFontSize": 12,
       "titleFontSize": 13,
       "titleFontWeight": "bold",
-      "symbolSize": 150,
+      "symbolSize": 160,
       "orient": "right"
     },
 

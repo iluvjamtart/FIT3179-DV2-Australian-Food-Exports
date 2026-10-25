@@ -68,6 +68,21 @@ body {
   max-width: 980px;
 }
 
+
+/* Orange line above hero title */
+
+.hero-accent {
+  width: 140px;
+  height: 4px;
+
+  margin: 0 0 28px;
+
+  background: var(--orange);
+
+  border-radius: 0;
+}
+
+
 .eyebrow {
   margin: 0 0 14px;
 
@@ -308,6 +323,7 @@ main {
   color: var(--muted);
 }
 
+
 /* Space between consecutive explanation paragraphs */
 
 .chart-intro > p:not(.chart-note) + p:not(.chart-note) {
@@ -487,6 +503,13 @@ main {
     max-width: 900px;
   }
 
+  .hero-accent {
+    width: 76px;
+    height: 3px;
+
+    margin-bottom: 18px;
+  }
+
   .hero h1 {
     font-size: clamp(2.4rem, 7vw, 3.8rem);
   }
@@ -547,6 +570,13 @@ main {
     min-height: auto;
 
     padding: 42px 5%;
+  }
+
+  .hero-accent {
+    width: 60px;
+    height: 3px;
+
+    margin-bottom: 16px;
   }
 
   .hero h1 {

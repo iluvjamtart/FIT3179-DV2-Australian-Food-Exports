@@ -203,8 +203,11 @@
     },
 
     "legend": {
-      "labelFontSize": 10,
-      "titleFontSize": 11
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "titleFontWeight": "bold",
+      "gradientThickness": 18,
+      "gradientLength": 220
     },
 
     "title": {

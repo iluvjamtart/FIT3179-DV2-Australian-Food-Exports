@@ -1,152 +1,225 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  
-    "title": {
-      "text": "Which Australian states are more export-oriented in agriculture?",
-      "subtitle": "Selected agricultural export value relative to agricultural production value, 2020-21.",
-      "anchor": "start",
-      "subtitlePadding": 10,
-      "offset": 18
-    },
-  
-    "width": "container",
-    "height": 520,
-  
-    "autosize": {
-      "type": "fit",
-      "contains": "padding"
-    },
-  
-    "projection": {
-      "type": "mercator"
-    },
-  
-    "layer": [
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/refs/heads/master/states.geojson",
-          "format": {
-            "type": "json",
-            "property": "features"
-          }
-        },
-  
-        "mark": {
-          "type": "geoshape",
-          "fill": "#e6e2d8",
-          "stroke": "#ffffff",
-          "strokeWidth": 1
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "Which Australian states are more export-oriented in agriculture?",
+    "subtitle": "Selected agricultural export value relative to agricultural production value, 2020-21.",
+    "anchor": "start",
+    "subtitlePadding": 10,
+    "offset": 18
+  },
+
+  "width": "container",
+  "height": 520,
+
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+
+  "projection": {
+    "type": "mercator"
+  },
+
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/refs/heads/master/states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
         }
       },
-  
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/refs/heads/master/states.geojson",
-          "format": {
-            "type": "json",
-            "property": "features"
+
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e6e2d8",
+        "stroke": "#ffffff",
+        "strokeWidth": 1
+      }
+    },
+
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/refs/heads/master/states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {
+              "url": "data/chart10_state_export_orientation.csv"
+            },
+            "key": "state",
+            "fields": ["export_orientation_pct"]
           }
         },
-  
-        "transform": [
-          {
-            "lookup": "properties.STATE_NAME",
-            "from": {
-              "data": {
-                "url": "data/chart10_state_export_orientation.csv"
-              },
-              "key": "state",
-              "fields": [
-                "export_orientation_pct"
-              ]
-            }
-          },
-          {
-            "filter": "isValid(datum.export_orientation_pct)"
-          },
-          {
-            "calculate": "toNumber(datum.export_orientation_pct)",
-            "as": "export_pct"
-          },
-          {
-            "calculate": "datum.export_pct < 40 ? '30 - <40%' : datum.export_pct < 50 ? '40 - <50%' : datum.export_pct < 60 ? '50 - <60%' : datum.export_pct < 70 ? '60 - <70%' : '70 - 80%'",
-            "as": "export_class"
-          }
-        ],
-  
-        "mark": {
-          "type": "geoshape",
-          "stroke": "#ffffff",
-          "strokeWidth": 1
+        {
+          "filter": "isValid(datum.export_orientation_pct)"
         },
-  
-        "encoding": {
-          "color": {
+        {
+          "calculate": "toNumber(datum.export_orientation_pct)",
+          "as": "export_pct"
+        },
+        {
+          "calculate": "datum.export_pct < 40 ? '30 - <40%' : datum.export_pct < 50 ? '40 - <50%' : datum.export_pct < 60 ? '50 - <60%' : datum.export_pct < 70 ? '60 - <70%' : '70 - 80%'",
+          "as": "export_class"
+        }
+      ],
+
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "strokeWidth": 1
+      },
+
+      "encoding": {
+        "color": {
+          "field": "export_class",
+          "type": "ordinal",
+          "title": "Export orientation (%)",
+          "scale": {
+            "domain": [
+              "30 - <40%",
+              "40 - <50%",
+              "50 - <60%",
+              "60 - <70%",
+              "70 - 80%"
+            ],
+            "range": [
+              "#bdd7e7",
+              "#6baed6",
+              "#3182bd",
+              "#08519c",
+              "#08306b"
+            ]
+          },
+          "legend": {
+            "title": "Export orientation (%)",
+            "orient": "right",
+            "labelFontSize": 10,
+            "titleFontSize": 11,
+            "symbolSize": 130,
+            "padding": 8
+          }
+        },
+
+        "tooltip": [
+          {
+            "field": "properties.STATE_NAME",
+            "type": "nominal",
+            "title": "State / territory"
+          },
+          {
+            "field": "export_pct",
+            "type": "quantitative",
+            "title": "Export orientation (%)",
+            "format": ".1f"
+          },
+          {
             "field": "export_class",
             "type": "ordinal",
-            "title": "Export orientation (%)",
-            "scale": {
-              "domain": [
-                "30 - <40%",
-                "40 - <50%",
-                "50 - <60%",
-                "60 - <70%",
-                "70 - 80%"
-              ],
-              "range": [
-                "#bdd7e7",
-                "#6baed6",
-                "#3182bd",
-                "#08519c",
-                "#08306b"
-              ]
-            },
-            "legend": {
-              "title": "Export orientation (%)",
-              "orient": "right",
-              "labelFontSize": 13,
-              "titleFontSize": 14,
-              "symbolSize": 220,
-              "padding": 10
-            }
+            "title": "Class"
+          }
+        ]
+      }
+    },
+
+    {
+      "data": {
+        "values": [
+          {
+            "state_label": "Western\nAustralia",
+            "longitude": 121.5,
+            "latitude": -25.5
           },
-  
-          "tooltip": [
-            {
-              "field": "properties.STATE_NAME",
-              "type": "nominal",
-              "title": "State / territory"
-            },
-            {
-              "field": "export_pct",
-              "type": "quantitative",
-              "title": "Export orientation (%)",
-              "format": ".1f"
-            },
-            {
-              "field": "export_class",
-              "type": "ordinal",
-              "title": "Class"
-            }
-          ]
+          {
+            "state_label": "Northern\nTerritory",
+            "longitude": 133.0,
+            "latitude": -19.0
+          },
+          {
+            "state_label": "South\nAustralia",
+            "longitude": 135.0,
+            "latitude": -30.0
+          },
+          {
+            "state_label": "Queensland",
+            "longitude": 145.5,
+            "latitude": -21.5
+          },
+          {
+            "state_label": "New South\nWales",
+            "longitude": 147.0,
+            "latitude": -32.7
+          },
+          {
+            "state_label": "Victoria",
+            "longitude": 144.8,
+            "latitude": -36.8
+          },
+          {
+            "state_label": "Tasmania",
+            "longitude": 146.7,
+            "latitude": -42.0
+          }
+        ]
+      },
+
+      "mark": {
+        "type": "text",
+        "fontSize": 10.5,
+        "fontWeight": "bold",
+        "align": "center",
+        "baseline": "middle",
+        "lineBreak": "\n"
+      },
+
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+
+        "text": {
+          "field": "state_label"
+        },
+
+        "color": {
+          "condition": {
+            "test": "datum.state_label == 'Tasmania'",
+            "value": "#000000"
+          },
+          "value": "#ffffff"
         }
       }
-    ],
-  
-    "config": {
-      "view": {
-        "stroke": null
-      },
-  
-      "legend": {
-        "labelFontSize": 13,
-        "titleFontSize": 14,
-        "symbolSize": 220
-      },
-  
-      "title": {
-        "fontSize": 18,
-        "subtitleFontSize": 12
-      }
+    }
+  ],
+
+  "config": {
+    "view": {
+      "stroke": null
+    },
+
+    "legend": {
+      "labelFontSize": 10,
+      "titleFontSize": 11,
+      "symbolSize": 130
+    },
+
+    "title": {
+      "fontSize": 18,
+      "subtitleFontSize": 12
     }
   }
+}
